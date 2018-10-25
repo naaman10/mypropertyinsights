@@ -20,11 +20,24 @@ $(window).scroll(function() {
 
 //600
 
+// $('#reportStart').on('click', function() {
+//   var email = $("#startEmail").val();
+//   var emailRegex = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$';
+//   if (email === emailRegex){
+//     $('#staticEmail').val( email );
+//     $("#reportModal").modal('show');
+//   } else {
+//   $(".invalid-feedback").css('display', 'block');
+//   console.log("fuck");
+// }
+// });
+
 $('#reportStart').on('click', function() {
-  var email = $("#startEmail").val();
-  $('#staticEmail').val( email );
-  $("#reportModal").modal('show');
-});
+   var email = $("#startEmail").val();
+   $('#staticEmail').val( email );
+   $("#reportModal").modal('show');
+ });
+
 $('#lookup_field').setupPostcodeLookup({
   api_key: 'ak_jnk3962aUM3A5dVoZcgSAAO90yegm',
   output_fields: {
@@ -32,7 +45,9 @@ $('#lookup_field').setupPostcodeLookup({
     line_2: '#second_line',
     line_3: '#third_line',
     post_town: '#post_town',
-    postcode: '#postcode'
+    postcode: '#postcode',
+    longitude: '#longitude',
+    latitude: '#latitude'
   },
   button: "#find-button",
   input: "#postCodeInput",

@@ -26,7 +26,7 @@ h6 {
 header.hero {
   position: relative;
   background-color: #343a40;
-  background: url("/img/background.jpeg") no-repeat center center;
+  background: url("../img/background.jpeg") no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem; }
@@ -45,8 +45,8 @@ header.hero h1 {
 
 @media (min-width: 768px) {
   header.hero {
-    padding-top: 12rem;
-    padding-bottom: 12rem; }
+    padding-top: 8rem;
+    padding-bottom: 8rem; }
 
   header.hero h1 {
     font-size: 3rem; } }
@@ -116,5 +116,12 @@ footer.footer {
   border-color: #2da13d;
   border-radius: 0; }
 
+.btn-primary:hover {
+  background-color: rgba(45, 161, 61, 0.8);
+  border-color: rgba(45, 161, 61, 0.8); }
+
 .features-icons .features-icons-item .features-icons-icon i {
   color: #2da13d !important; }
+
+input#longitude, input#latitude {
+  display: none; }
