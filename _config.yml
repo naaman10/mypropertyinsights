@@ -1,0 +1,16 @@
+---
+title: my property insights
+timezone: GMT
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+email: naamanh10@gmail.com
+description: My Property Insights
+baseurl: ''
+url: 
+markdown: kramdown
