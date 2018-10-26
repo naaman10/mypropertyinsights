@@ -33,8 +33,6 @@ h6 {
   font-weight: 700;
 }
 .navbar {
-  padding-left: 50px;
-  padding-right: 50px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -50,6 +48,11 @@ h6 {
 }
 .navbar-dark .navbar-brand {
   color: black;
+  font-weight: 200;
+}
+.navbar-dark .navbar-brand:hover {
+  color: black;
+  font-weight: 400;
 }
 .navbar-brand span {
   color: $brand-green;
@@ -64,9 +67,13 @@ header.hero {
   position: relative;
   background-color: #343a40;
   background: url("../img/background.jpeg") no-repeat center center;
-  background-size: cover;
+
   padding-top: 8rem;
   padding-bottom: 8rem;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header.hero .overlay {
@@ -106,6 +113,10 @@ header.hero h1 {
 @media (min-width: 768px) {
   .showcase .showcase-text {
     padding: 7rem;
+  }
+  .navbar {
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 
@@ -187,4 +198,31 @@ footer.footer {
 }
 input#longitude,input#latitude {
   display: none;
+}
+input,.form-control-lg, .input-group-lg>.form-control, .input-group-lg>.input-group-append>.btn, .input-group-lg>.input-group-append>.input-group-text, .input-group-lg>.input-group-prepend>.btn, .input-group-lg>.input-group-prepend>.input-group-text {
+  border-radius: 1px;
+}
+.invalid-feedback {
+  background-color: red;
+  color: white;
+  text-align: left;
+  padding: 5px;
+}
+.navbar-dark .navbar-toggler {
+  color: $brand-green;
+  font-size: 30px;
+}
+.card-deck .card {
+  max-width: 33%;
+}
+#newsHeader {
+  background-image: url("../img/new-insights.jpeg");
+  background-position: center bottom;
+  margin-bottom: 30px;
+}
+a.card {
+  color: black;
+}
+a.card:hover {
+  text-decoration: none;
 }

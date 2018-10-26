@@ -10,8 +10,8 @@ excerpt_separator: <!--more-->
 
 Having headaches over estate agent fees?
 
-Ever thought of selling without an estate agent? Estimated on a £300,000 property, sellers hand
-over 1.8 per cent to an agent who provide only a valuation, photographs, <!--more--> listing in branch and
+Ever thought of selling without an estate agent? Estimated on a £300,000 property, sellers <!--more-->hand
+over 1.8 per cent to an agent who provide only a valuation, photographs, listing in branch and
 online and organising the sale. That works out at £5,400 you are handing over!
 
 Here with Property Insights, we show you 10 steps to selling your house without spending a

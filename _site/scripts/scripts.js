@@ -1,25 +1,4 @@
-$(document).ready(function (){
-  $(".nav-link").click(function(){
-    var navID = $(this).attr('href');
-    $('html, body').animate({
-        scrollTop: $( navID ).offset().top
-    }, 2000);
-  });
-});
-
-$("#footerNav").hide();
-$(window).scroll(function() {
-  var scroll = $(window).scrollTop();
-  if (scroll > 600) {
-    $('#footerNav').fadeIn();
-    console.log( scroll );
-  } else {
-    $("#footerNav").fadeOut();
-  };
-});
-
-//600
-
+// start email validation
 function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
@@ -33,6 +12,7 @@ function validate() {
   if (validateEmail(email)) {
     $('#staticEmail').val( email );
     $("#reportModal").modal('show');
+    $(".invalid-feedback").css('display', 'none');
   } else {
     $(".invalid-feedback").css('display', 'block');
   }
@@ -42,29 +22,7 @@ function validate() {
 $("#reportStart").bind("click", validate);
 
 
-//
-//
-// $('#reportStart').on('click', function() {
-//   var email = $("#startEmail").val();
-//   var re = new RegExp("^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$");
-//   // if the value of email matches format of emailRegex
-//   if (re.test(email)) {
-//     console.log("true: move on");
-//     //     $('#staticEmail').val( email );
-//     //     $("#reportModal").modal('show');
-//   } else {
-//     console.log("false: enter email propers");
-//     $(".invalid-feedback").css('display', 'block');
-//     //   console.log("fuck");
-//   }
-// });
-
-// $('#reportStart').on('click', function() {
-//    var email = $("#startEmail").val();
-//    $('#staticEmail').val( email );
-//    $("#reportModal").modal('show');
-//  });
-
+// postcode search
 $('#lookup_field').setupPostcodeLookup({
   api_key: 'ak_jnk3962aUM3A5dVoZcgSAAO90yegm',
   output_fields: {
@@ -97,6 +55,7 @@ $('#lookup_field').setupPostcodeLookup({
   //       .html("Some error occurred");
   //   }
 });
+
 // Form submit
 $("#mainLeadFormSubmit").on('click', function(event) {
   event.preventDefault();
