@@ -32,6 +32,33 @@ h6 {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
+.navbar {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: $brand-green;
+  font-size: 16px;
+  text-transform: lowercase;
+  margin-right: 15px;
+}
+
+.navbar-dark .navbar-brand,.navbar-brand span {
+  font-size: 26px;
+}
+.navbar-dark .navbar-brand {
+  color: black;
+}
+.navbar-brand span {
+  color: $brand-green;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: $brand-green;
+  background-color: rgba(45, 161, 61,.2);
+
+}
 
 header.hero {
   position: relative;

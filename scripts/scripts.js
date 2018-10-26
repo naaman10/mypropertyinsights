@@ -20,23 +20,50 @@ $(window).scroll(function() {
 
 //600
 
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+function validate() {
+  var $result = $("#result");
+  var email = $("#startEmail").val();
+  $result.text("");
+
+  if (validateEmail(email)) {
+    $('#staticEmail').val( email );
+    $("#reportModal").modal('show');
+  } else {
+    $(".invalid-feedback").css('display', 'block');
+  }
+  return false;
+}
+
+$("#reportStart").bind("click", validate);
+
+
+//
+//
 // $('#reportStart').on('click', function() {
 //   var email = $("#startEmail").val();
-//   var emailRegex = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$';
-//   if (email === emailRegex){
-//     $('#staticEmail').val( email );
-//     $("#reportModal").modal('show');
+//   var re = new RegExp("^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$");
+//   // if the value of email matches format of emailRegex
+//   if (re.test(email)) {
+//     console.log("true: move on");
+//     //     $('#staticEmail').val( email );
+//     //     $("#reportModal").modal('show');
 //   } else {
-//   $(".invalid-feedback").css('display', 'block');
-//   console.log("fuck");
-// }
+//     console.log("false: enter email propers");
+//     $(".invalid-feedback").css('display', 'block');
+//     //   console.log("fuck");
+//   }
 // });
 
-$('#reportStart').on('click', function() {
-   var email = $("#startEmail").val();
-   $('#staticEmail').val( email );
-   $("#reportModal").modal('show');
- });
+// $('#reportStart').on('click', function() {
+//    var email = $("#startEmail").val();
+//    $('#staticEmail').val( email );
+//    $("#reportModal").modal('show');
+//  });
 
 $('#lookup_field').setupPostcodeLookup({
   api_key: 'ak_jnk3962aUM3A5dVoZcgSAAO90yegm',
