@@ -11,6 +11,7 @@ tags:
 - estate agents
 - advice
 excerpt_separator: "<!--more-->"
+banner_image: ''
 
 ---
 Having headaches over estate agent fees?
