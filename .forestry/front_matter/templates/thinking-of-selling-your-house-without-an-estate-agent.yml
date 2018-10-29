@@ -41,3 +41,5 @@ fields:
   description: 1200x300px
   config:
     maxSize: '1'
+pages:
+- _posts/2018-10-25-Without-an-estate-agent.md
