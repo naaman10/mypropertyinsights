@@ -212,9 +212,7 @@ input,.form-control-lg, .input-group-lg>.form-control, .input-group-lg>.input-gr
   color: $brand-green;
   font-size: 30px;
 }
-.card-deck .card {
-  max-width: 33%;
-}
+
 #newsHeader {
   background-image: url("../img/new-insights.jpeg");
   background-position: center bottom;
@@ -225,4 +223,27 @@ a.card {
 }
 a.card:hover {
   text-decoration: none;
+}
+#gmap_canvas {
+  width: 100%;
+  height: 75%;
+}
+#addressCard {
+  padding: 0;
+}
+#addressCard .card-text {
+  padding: 20px;
+}
+.valPrice {
+  font-size: 36px;
+  margin-bottom: 0;
+}
+#reportReady {
+  text-align: center;
+}
+#reportReady .fas {
+  color: $brand-green;
+}
+#reportReady .btn {
+  float: right;
 }

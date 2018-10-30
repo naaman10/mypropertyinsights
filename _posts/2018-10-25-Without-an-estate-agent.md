@@ -2,7 +2,7 @@
 title: "Thinking of selling your house: Without an estate agent?"
 date: 2018-10-25 00:00:00 Z
 layout: post
-categories: [blog, selling]
+categories: [news-insights]
 tags: [selling, without, estate agents, advice]
 excerpt_separator: <!--more-->
 ---

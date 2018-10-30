@@ -59,6 +59,7 @@ $('#lookup_field').setupPostcodeLookup({
 // Form submit
 $("#mainLeadFormSubmit").on('click', function(event) {
   event.preventDefault();
+  Cookies.remove("valuation");
   var firstName = $("#firstName").val();
   var lastName = $("#lastName").val();
   var email = $("#staticEmail").val();
@@ -69,6 +70,8 @@ $("#mainLeadFormSubmit").on('click', function(event) {
   var postCode = $("#postcode").val();
   var marketConsent = $("#marketConsent").val();
   var serviceConsent = $("#serviceConsent").val();
+  var longitude = $("#longitude").val();
+  var latitude = $("#latitude").val();
   if (serviceConsent = true) {
     var theForm = {
       "fields": [
@@ -127,12 +130,46 @@ $("#mainLeadFormSubmit").on('click', function(event) {
   })
     .done(function() {
       console.log("success");
-    })
+      var database = firebase.database();
+      var valuationPath = firebase.database().ref('valuation');
+      var newValuation = valuationPath.push();
+
+      newValuation.set({
+          firstname: firstName,
+          surname: lastName,
+          email: email,
+          add1 : addLine1,
+          add2 : addLine2,
+          add3 : addLine3,
+          town : town,
+          postcode : postCode,
+          market : marketConsent,
+          service : serviceConsent,
+          long : longitude,
+          lat : latitude,
+          date: Date()
+        })
+        newValuation.on("child_added", function(data) {
+          const valuationID = newValuation.key;
+          console.log(valuationID);
+          Cookies.set("valuation", valuationID);
+          $("#reportModal").modal('hide');
+          $("#reportReady").modal('show');
+
+        })
+      })
     .fail(function() {
       console.log("error");
     })
     .always(function() {
       console.log("complete");
     });
+  } else {
+
   }
+});
+$("#viewReportBtn").on('click', function() {
+  event.preventDefault();
+  var pageId = Cookies.get("valuation");
+  window.location.href = '/valuation?id=' + pageId;
 });

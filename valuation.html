@@ -1,0 +1,49 @@
+---
+title: My Valuation
+permalink: "/valuation"
+layout: valuation
+---
+{% include navbar.html %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Your Valuation</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <div class="card bg-light mb-3">
+        <div class="card-header">Valuation</div>
+        <div class="card-body">
+          <h5 class="card-title valPrice">£170,000</h5>
+          <p class="card-text">Low Estimate</p>
+          <h5 class="card-title valPrice">£185,000</h5>
+          <p class="card-text">Med Estimate</p>
+          <h5 class="card-title valPrice">£200,000</h5>
+          <p class="card-text">High Estimate</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card text-white bg-dark mb-3">
+        <div class="card-header">
+            Address
+        </div>
+        <div class="card-body" id="addressCard">
+          <div class="card-text">
+            <p id="addLine1"></p>
+            <p id="addLine2"></p>
+            <p id="addLine3"></p>
+            <p id="town"></p>
+            <p id="postcode"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <canvas id="valueTimeChart"></canvas>
+    </div>
+  </div>
+</div>
