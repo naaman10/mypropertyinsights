@@ -11,30 +11,5 @@ $(document).ready(function() {
     $("#postcode").text(snapshot.val().postcode);
     var postcode = snapshot.val().postcode;
     console.log(postcode);
-    var dataProp = $.ajax({
-      url: 'https://api.propertydata.co.uk/prices?key=ZWEMVOCUO2&postcode=' + postcode + 'bedrooms=3',
-      type: 'GET',
-      dataType: 'jsonp',
-      crossDomain: true,
-      async : true,
-      headers : {
-        'Access-Control-Allow-Origin' : '*',
-        "cache-control": "no-cache"
-      },
-      processData: false
-    })
-    .done(function() {
-      console.log("success");
-      console.log(dataProp);
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    });
-
-
-
   });
 });
