@@ -7,5 +7,3 @@ heroImg: "/img/news-insights.jpeg"
 ---
 {% include navbar.html %}
 {% include pageHeader.html %}
-
-test page
