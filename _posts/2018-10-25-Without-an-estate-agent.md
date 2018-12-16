@@ -2,11 +2,17 @@
 title: 'Thinking of selling your house: Without an estate agent?'
 date: 2018-10-25 00:00:00 +0000
 layout: post
-categories: [news-insights]
-tags: [selling, without, estate agents, advice]
-excerpt_separator: <!--more-->
----
+categories:
+- news-insights
+tags:
+- selling
+- without
+- estate agents
+- advice
+excerpt_separator: "<!--more-->"
+banner_image: "/uploads/post-image.jpeg"
 
+---
 Having headaches over estate agent fees?
 
 Ever thought of selling without an estate agent? Estimated on a £300,000 property, sellers <!--more-->hand
