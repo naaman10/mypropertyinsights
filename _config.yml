@@ -12,6 +12,6 @@ defaults:
 email: naamanh10@gmail.com
 description: My Property Insights
 baseurl: ''
-url:
+url: https://www.mypropertyinsights.co.uk
 markdown: kramdown
 date: 2018
