@@ -1,40 +1,33 @@
-<section id="contact">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h1>Contact Me</h1>
-        <form name="contact" netlify>
-          <div class="form-group">
-            <label for="nameContact">Name</label>
-            <input type="text" name="name" class="form-control" id="nameContact" aria-describedby="YourName" placeholder="Enter name">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group">
-            <label for="emailContact">Email</label>
-            <input type="email" name="email" class="form-control" id="emailContact" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="messageContact">Message</label>
-            <textarea name="message" class="form-control" id="messageContact" rows="3"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6">
     </div>
-    <div class="row">
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <ul class="socialList">
-              <li class="socialItem"><a href="https://github.com/naaman10"><i class="fab fa-github"></i></a></li>
-              <li class="socialItem"><a href="https://www.instagram.com/naaman10/"><i class="fab fa-instagram"></i></a></li>
-              <li class="socialItem"><a href="https://www.linkedin.com/in/naamanhudson/"><i class="fab fa-linkedin"></i></a></li>
-              <li class="socialItem"><a href="tel:07540609389"><i class="fas fa-mobile"></i></a></li>
-              <li class="socialItem"><a href="mailto:naamanh10@gmail.com"><i class="fas fa-envelope"></i></a></li>
-            </ul>
-          </div>
+    <div class="col-12 col-md-6">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="contactFirstName">First name</label>
+          <input type="text" class="form-control" id="contactFirstName" placeholder="First name">
         </div>
-      </div>
+        <div class="form-group">
+          <label for="contactSurname">Last name</label>
+          <input type="text" class="form-control" id="contactSurname" placeholder="Last name">
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Email address</label>
+          <input type="email" class="form-control" id="contactEmail" placeholder="Your email address">
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Your message</label>
+          <textarea class="form-control" id="contactMessage" rows="3"></textarea>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="contactConsent">
+          <label class="form-check-label" for="contactConsent">
+            I agree
+          </label>
+        </div>
+        <button id="contactSubmit" class="btn btn-primary" type="submit">Contact</button>
+      </form>
     </div>
   </div>
-</section>
+</div>
