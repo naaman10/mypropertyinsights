@@ -21,7 +21,8 @@ h4,
 h5,
 h6 {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700; }
+  font-weight: 300;
+  color: #2da13d; }
 
 .navbar {
   padding-top: 20px;
@@ -79,7 +80,11 @@ header.hero .overlay {
   opacity: 0.3; }
 
 header.hero h1 {
-  font-size: 2rem; }
+  font-size: 2rem;
+  color: white; }
+
+header.hero h2, header.hero h3 {
+  color: white; }
 
 @media (min-width: 768px) {
   header.hero {
@@ -148,7 +153,8 @@ header.hero h1 {
 
 footer.footer {
   padding-top: 4rem;
-  padding-bottom: 4rem; }
+  padding-bottom: 4rem;
+  margin-top: 40px; }
 
 #addressSelectContainer, #selectedAddress {
   display: none; }
@@ -164,6 +170,16 @@ footer.footer {
 
 .features-icons .features-icons-item .features-icons-icon i {
   color: #2da13d !important; }
+
+.mission {
+  background-color: #2da13d;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 2px; }
+
+.mission h2 {
+  color: white; }
 
 input#longitude, input#latitude {
   display: none; }
@@ -293,3 +309,5 @@ span.card-link {
   40% {
     -webkit-transform: scale(1);
     transform: scale(1); } }
+#purpleBricks .card {
+  background-color: #572266; }

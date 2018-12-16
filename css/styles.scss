@@ -2,6 +2,7 @@
 ---
 
 $brand-green: #2da13d;
+$purple-bricks: #572266;
 
 body, html {
   height: 100%;
@@ -30,8 +31,10 @@ h4,
 h5,
 h6 {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 300;
+  color: $brand-green;
 }
+
 .navbar {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -95,8 +98,11 @@ header.hero .overlay {
 
 header.hero h1 {
   font-size: 2rem;
+  color: white;
 }
-
+header.hero h2, header.hero h3 {
+  color: white;
+}
 @media (min-width: 768px) {
   header.hero {
     padding-top: 8rem;
@@ -184,6 +190,7 @@ header.hero h1 {
 footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
+  margin-top: 40px;
 }
 
 #addressSelectContainer, #selectedAddress {
@@ -202,6 +209,16 @@ footer.footer {
 }
 .features-icons .features-icons-item .features-icons-icon i {
   color: $brand-green !important;
+}
+.mission {
+  background-color: $brand-green;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+.mission h2 {
+  color: white;
 }
 input#longitude,input#latitude {
   display: none;
@@ -340,4 +357,7 @@ span.card-link {
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
   }
+}
+#purpleBricks .card {
+  background-color: $purple-bricks;
 }
