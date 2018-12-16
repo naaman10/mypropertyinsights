@@ -55,6 +55,76 @@ $('#lookup_field').setupPostcodeLookup({
   //       .html("Some error occurred");
   //   }
 });
+//  Contact Form submit
+$("#contactSubmit").on('click', function(event) {
+  event.preventDefault();
+  var contactFirstName = $("#contactFirstName").val();
+  var contactSurname = $("#contactSurname").val();
+  var contactEmail = $("#contactEmail").val();
+  var contactMessage = $("#contactMessage").val();
+  var contactConsent = $("#contactConsent").length;
+  if (contactConsent == "1") {
+    var contactForm = {
+      "fields": [
+        {
+          "name": "firstname",
+          "value": contactFirstName
+        },
+        {
+          "name": "lastname",
+          "value": contactSurname
+        },
+        {
+          "name": "email",
+          "value": contactEmail
+        },
+        {
+          "name": "message",
+          "value": contactMessage
+        },
+        {
+          "name": "contact_consent",
+          "value": contactConsent
+        }
+      ]
+    }
+    $.ajax({
+      url: 'https://api.hsforms.com/submissions/v3/integration/submit/5049561/e22448a3-0cac-424a-8415-27db1651d596',
+      type: 'POST',
+      dataType: 'json',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      data: JSON.stringify(contactForm)
+  })
+  .done(function() {
+    toastr["success"]("The team at mypropertyinsights will get back to you as soon as possible.", "Message sent")
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toast-top-full-width",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+    console.log("DONE");
+  });
+}
+else {
+  console.log("consent not given");
+}
+});
+
 
 // Form submit
 $("#mainLeadFormSubmit").on('click', function(event) {
@@ -69,10 +139,11 @@ $("#mainLeadFormSubmit").on('click', function(event) {
   var town = $("#post_town").val();
   var postCode = $("#postcode").val();
   var marketConsent = $("#marketConsent").val();
-  var serviceConsent = $("#serviceConsent").val();
+  var serviceConsentNum = $("#serviceConsent").length;
+  var serviceConsentString = serviceConsentNum.toString();
   var longitude = $("#longitude").val();
   var latitude = $("#latitude").val();
-  if (serviceConsent = true) {
+  if (serviceConsentString == "1") {
     var theForm = {
       "fields": [
         {
@@ -113,7 +184,7 @@ $("#mainLeadFormSubmit").on('click', function(event) {
         },
         {
           "name": "service_consent",
-          "value": serviceConsent
+          "value": serviceConsentNum
         }
       ]
     }
@@ -155,7 +226,11 @@ $("#mainLeadFormSubmit").on('click', function(event) {
           Cookies.set("valuation", valuationID);
           $("#reportModal").modal('hide');
           $("#reportReady").modal('show');
-
+          setTimeout(function() {
+            $('.flipper').toggleClass('flipped');
+            $(".front").css('display', 'none');
+            $(".back").css('display', 'inline-block');
+          }, 15000);
         })
       })
     .fail(function() {
@@ -165,9 +240,9 @@ $("#mainLeadFormSubmit").on('click', function(event) {
       console.log("complete");
     });
   } else {
-
   }
 });
+
 $("#viewReportBtn").on('click', function() {
   event.preventDefault();
   var pageId = Cookies.get("valuation");

@@ -18,8 +18,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
 <link rel="stylesheet" href="/css/styles.css">
-<title>Home | my property insights</title>
+<title>Home | mypropertyinsights</title>
 
 
   </head>
@@ -41,13 +42,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/news-insights">News & Insights</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="/contact">Contact</a>
           </li>
         </ul>
       </div>
@@ -58,9 +59,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
-        <img class="img-fluid" src="/img/logo-white.png" width="400">
-        <h1 class="mb-5">Your property report awaits</h1>
-        <h2>Get started with your valuation...</h2>
+        <h1 class="logo">myproperty<span>insights</span></h1>
+        <h2 class="mb-5">Your property report awaits</h2>
+        <h3>Get started with your valuation...</h3>
       </div>
       <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <form>
@@ -135,11 +136,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
         <ul class="list-inline mb-2">
           <li class="list-inline-item">
-            <a href="#">About</a>
+            <a href="/about">About</a>
           </li>
           <li class="list-inline-item">&sdot;</li>
           <li class="list-inline-item">
-            <a href="#">Contact</a>
+            <a href="/contact">Contact</a>
           </li>
           <li class="list-inline-item">&sdot;</li>
           <li class="list-inline-item">
@@ -147,10 +148,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </li>
           <li class="list-inline-item">&sdot;</li>
           <li class="list-inline-item">
-            <a href="#">Privacy Policy</a>
+            <a href="/policies">Cookies Policy</a>
           </li>
         </ul>
-        <p class="text-muted small mb-4 mb-lg-0">&copy; my property insights. All Rights Reserved.</p>
+        <p class="text-muted small mb-4 mb-lg-0">&copy; mypropertyinsights - 2018. All Rights Reserved.</p>
       </div>
       <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
         <ul class="list-inline mb-0">
@@ -159,14 +160,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <i class="fab fa-facebook fa-2x fa-fw"></i>
             </a>
           </li>
-          <li class="list-inline-item mr-3">
-            <a href="#">
-              <i class="fab fa-twitter-square fa-2x fa-fw"></i>
-            </a>
-          </li>
           <li class="list-inline-item">
-            <a href="#">
-              <i class="fab fa-instagram fa-2x fa-fw"></i>
+            <a href="mailto:contact@mypropertyinsights.co.uk?subject=Contact">
+              <i class="fas fa-2x fa-envelope"></i>
             </a>
           </li>
         </ul>
@@ -185,25 +181,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col">
-            <ul class="nav nav-pills nav-fills">
-              <li class="nav-item">
-                <span class="step-badge">1</span> Find your address
-              </li>
-              <li class="nav-item">
-                2
-              </li>
-              <li class="nav-item">
-                3
-              </li>
-              <li class="nav-item">
-                4
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <form id="mainLeadForm">
           <div class="form-group row">
             <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
@@ -224,6 +201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="input-group-append">
               <button class="btn btn-outline-secondary" type="button" id="find-button">Find</button>
             </div>
+            <div id="successStatus"></div>
           </div>
           <div class="form-group">
             <div id="lookup_field"></div>
@@ -243,37 +221,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <input id="latitude" type="text">
 
             <div class="gdpr">
-              <p class="small">my property insights is committed to protecting and respecting your privacy, and we’ll only use your personal
-                information to administer your account and to provide the products and services you requested from us. From time to
-                time, we would like to contact you about our products and services, as well as other content that may be of interest
-                to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:</p>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="marketConsent">
-                <label class="custom-control-label" for="marketConsent">I would like to receive information from my propert insights.</label>
-              </div>
-              <p class="small"></p>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="serviceConsent">
-                <label class="custom-control-label" for="serviceConsent">I agree and allow my property insight to process my data to provide my with my property report.</label>
-              </div>
+              <p class="small">my property insights is committed to protecting and respecting your privacy, and we’ll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would
+                like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="marketConsent">
+                  <label class="form-check-label" for="marketConsent">
+                    <p class="small">I would like to receive information from my propert insights.</p>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="serviceConsent">
+                  <label class="form-check-label" for="serviceConsent">
+                    <p class="small">I agree and allow my property insight to process my data to provide my with my property report.</p>
+                  </label>
+                </div>
             </div>
+            <button type="submit" id="mainLeadFormSubmit" class="btn btn-primary">Submit</button>
           </div>
-          <button type="submit" id="mainLeadFormSubmit" class="btn btn-primary">Submit</button>
+
         </form>
       </div>
       <pre id="successStatus"></pre>
     </div>
   </div>
 </div>
+
+<!-- Report ready -->
 <div class="modal fade" id="reportReady" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body">
         <div class="row">
           <div class="col">
-            <h1><i class="fas fa-thumbs-up"></i></h1>
-            <p class="lead">Your report is now ready!</p>
-            <button class="btn btn-primary" id="viewReportBtn">View report</button>
+            <div class="flipper">
+              <div class="front">
+                <div id="viewwReportLoading">
+                  <p>Building your report</p>
+                  <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="back">
+                <div id="viewReportPostSpin">
+                  <h1><i class="fas fa-thumbs-up"></i></h1>
+                  <p class="lead">Your report is now ready!</p>
+                  <button class="btn btn-primary" id="viewReportBtn">View report</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -290,6 +288,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="/scripts/postcodes.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="/scripts/scripts.js"></script>
     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5049561.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
