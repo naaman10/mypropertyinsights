@@ -3,7 +3,7 @@
     {% for post in site.posts %}
     <div class="col-12 col-md-4">
       <a class="card" href="{{site.url}}{{post.url}}"">
-        <img class=" card-img-top" src="https://via.placeholder.com/200x100/2da13d/ffffff.png?text=example" alt="Card image cap">
+        <img class=" card-img-top" src="{{site.url}}/{{post.banner_image}}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{post.title}}</h5>
           <p class="card-text">{{post.excerpt}}</p>
