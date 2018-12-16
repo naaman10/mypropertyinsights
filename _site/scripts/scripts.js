@@ -226,11 +226,7 @@ $("#mainLeadFormSubmit").on('click', function(event) {
           Cookies.set("valuation", valuationID);
           $("#reportModal").modal('hide');
           $("#reportReady").modal('show');
-          setTimeout(function() {
-            $('.flipper').toggleClass('flipped');
-            $(".front").css('display', 'none');
-            $(".back").css('display', 'inline-block');
-          }, 15000);
+          setTimeout(reportAnimate, 15000);
         })
       })
     .fail(function() {
@@ -242,7 +238,11 @@ $("#mainLeadFormSubmit").on('click', function(event) {
   } else {
   }
 });
-
+function reportAnimate() {
+  $('.flipper').addClass('flipped');
+  $(".front").css('display', 'none');
+  $(".back").css('display', 'inline-block');
+};
 $("#viewReportBtn").on('click', function() {
   event.preventDefault();
   var pageId = Cookies.get("valuation");
