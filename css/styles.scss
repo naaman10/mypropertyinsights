@@ -207,6 +207,10 @@ footer.footer {
   background-color: rgba(45, 161, 61,.8);
   border-color: rgba(45, 161, 61,.8);
 }
+.btn.btn-primary.btn-purpleBricks {
+  background-color: $purple-bricks;
+  border-color: $purple-bricks;
+}
 .features-icons .features-icons-item .features-icons-icon i {
   color: $brand-green !important;
 }
@@ -360,4 +364,11 @@ span.card-link {
 }
 #purpleBricks .card {
   background-color: $purple-bricks;
+}
+#estateAgentsMap iframe{
+  width: 100%;
+}
+.onlineAgent ul {
+  list-style: none;
+  padding-left: 0;
 }
