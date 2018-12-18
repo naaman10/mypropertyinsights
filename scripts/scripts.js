@@ -248,3 +248,9 @@ $("#viewReportBtn").on('click', function() {
   var pageId = Cookies.get("valuation");
   window.location.href = '/valuation?id=' + pageId;
 });
+$(document).ready(function() {
+  var existingReport = Cookies.get("valuation");
+  if ( existingReport !== null ) {
+    $(".navbar-nav").append('<li class="nav-item"><a class="nav-link reportInNav" href="/dashboard?id=' + existingReport + '">Your Report</a></li>')
+  }
+});

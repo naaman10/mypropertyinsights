@@ -1,0 +1,23 @@
+<div class="row pt-3" id="dashboardValuation">
+
+</div>
+<script>
+  var urlString = window.location.href;
+  var url = new URL(urlString);
+  var valuationId = url.searchParams.get("id");
+  var externalDataRef = firebase.database().ref('valuation/' + valuationId + '/externalData');
+  externalDataRef.on('value', function (snapshot) {
+    var valFlatPrice = snapshot.val().flat.average.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    var valTerracedPrice = snapshot.val().terraced.average.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    var valDetachedPrice = snapshot.val().detached.average.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (valTerracedPrice !== undefined) {
+      $("#dashboardValuation").append('<div class="col-3"><div class="dashCard shadow-sm"><div class="dashCardHeader">Average Flat Price</div><div class="dashCardBody"><h2>£' + valTerracedPrice + '</h2></div></div></div>');
+    }
+    if (valFlatPrice !== undefined) {
+      $("#dashboardValuation").append('<div class="col-3"><div class="dashCard shadow-sm"><div class="dashCardHeader">Average Terrace Price</div><div class="dashCardBody"><h2>£' + valFlatPrice + '</h2></div></div></div>');
+    }
+    if (valDetachedPrice !== undefined) {
+      $("#dashboardValuation").append('<div class="col-3"><div class="dashCard shadow-sm"><div class="dashCardHeader">Average Detached Price</div><div class="dashCardBody"><h2>£' + valDetachedPrice + '</h2></div></div></div>');
+    }
+  });
+  </script>

@@ -372,3 +372,55 @@ span.card-link {
   list-style: none;
   padding-left: 0;
 }
+main {
+  background-color: #E0E0E0;
+  height:100vh;
+}
+.addressBlock {
+background-color: #F1F1F1;
+padding: 20px;
+}
+.addressBlock p {
+  margin: 0;
+  line-height: normal;
+}
+.col-md-3.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+  background-color: white!important;
+}
+.sidebar-sticky .addressBlock p {
+  font-weight: 400;
+}
+.sidebar-sticky a.nav-link {
+  background-color: white;
+  color: black;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.sidebar-sticky a.nav-link i {
+  margin-right: 10px;
+}
+.sidebar-sticky a.nav-link.active, .sidebar-sticky a.nav-link:hover {
+  background-color: rgba(45, 161, 61, 0.2);
+  color: $brand-green;
+  border-left: 3px solid $brand-green;
+}
+.dashCard {
+  background-color: white;
+}
+.dashCardHeader {
+  background-color: #f1f1f1;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+}
+.dashCardBody {
+  text-align: center;
+  padding: 20px;
+}
+.navbar-dark .navbar-nav .nav-link.reportInNav {
+  background-color: $brand-green;
+  color: white;
+}
