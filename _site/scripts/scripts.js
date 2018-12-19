@@ -129,7 +129,6 @@ else {
 // Form submit
 $("#mainLeadFormSubmit").on('click', function(event) {
   event.preventDefault();
-  Cookies.remove("valuation");
   var firstName = $("#firstName").val();
   var lastName = $("#lastName").val();
   var email = $("#staticEmail").val();
@@ -247,4 +246,10 @@ $("#viewReportBtn").on('click', function() {
   event.preventDefault();
   var pageId = Cookies.get("valuation");
   window.location.href = '/valuation?id=' + pageId;
+});
+$(document).ready(function() {
+  var pageId = Cookies.get("valuation");
+  if (pageId !== "") {
+    $(".navbar-nav").append('<li class="nav-item"><a class="nav-link reportLink" href="/valuation?id=' + pageId + '">your report</a></li>')
+  }
 });

@@ -279,6 +279,9 @@ span.card-link {
   color: $brand-green;
   float: right;
 }
+.reportModal {
+  overflow-y: auto;
+}
 .gdpr {
   padding: 5px;
 }
@@ -371,4 +374,8 @@ span.card-link {
 .onlineAgent ul {
   list-style: none;
   padding-left: 0;
+}
+.navbar-dark .navbar-nav .nav-link.reportLink {
+  background-color: $brand-green;
+  color: white;
 }

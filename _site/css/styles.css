@@ -239,6 +239,9 @@ span.card-link {
   color: #2da13d;
   float: right; }
 
+.reportModal {
+  overflow-y: auto; }
+
 .gdpr {
   padding: 5px; }
 
@@ -322,3 +325,7 @@ span.card-link {
 .onlineAgent ul {
   list-style: none;
   padding-left: 0; }
+
+.navbar-dark .navbar-nav .nav-link.reportLink {
+  background-color: #2da13d;
+  color: white; }
