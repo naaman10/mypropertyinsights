@@ -4,21 +4,26 @@
     <div class="row">
       <div class="col-xl-9 mx-auto">
         <h1 class="logo">myproperty<span>insights</span></h1>
-        <h2 class="mb-5">Your property report awaits</h2>
-        <h3>Get started with your valuation...</h3>
+        <h2>Your property report awaits</h2>
       </div>
-      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form>
-          <div class="form-row">
-            <div class="col-12 col-md-9 mb-2 mb-md-0">
-              <input id="startEmail" type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-              <div class="invalid-feedback"><i class="fas fa-exclamation-triangle"></i> Please enter a valid email address.</div>
-            </div>
-            <div class="col-12 col-md-3">
-              <button id="reportStart" type="button" class="btn btn-block btn-lg btn-primary">Go</button>
+      <div class="col-md-6 col-lg-6 col-xl-6 mx-auto text-center">
+        <div class="card animated wow fadeInUp" data-wow-delay="0.3s">
+          <div class="card-body z-depth-2">
+            <h3>Enter your post code to start your free valuation...</h3>
+            <div class="md-form input-group mb-3">
+              <input type="text" class="form-control" id="postCodeInput" aria-label="Enter Post Code"
+                aria-describedby="postCodeInput">
+                <label for="postCodeInput" class="">Post Code</label>
+              <div class="input-group-append">
+                <button class="btn btn-md btn-primary m-0 px-3" type="button" id="find-button">Search</button>
+              </div>
+              <div id="successStatus"></div>
+              <div class="form-group mdb-select">
+                <div id="lookup_field"></div>
+              </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>

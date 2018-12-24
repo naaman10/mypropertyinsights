@@ -3,27 +3,41 @@ layout: default
 ---
 
 {% include navbar.html %}
+<section class="">
+  <div class="row justify-content-center">
 
-<div class="post">
-  <!-- Wrapper Start -->
-  <section id="intro" style="border: 1px dotted #ddd;">
-    <div class="container">
-      <div class="row">
-        <div>
-          <div class="block">
-            <img src"{{ site.url }}">
-            <h1>{{ page.title }}</h1>
-            <div class="post-info-wrapper">
-              <p class="italic"><span class="bold">{{ page.date | date: "%B %-d, %Y" }}</span></p>
-            </div>
-            <hr />
-            <p>{{ content }}</p>
+      <div class="post-img" style="background-image: url('{{base.url}}{{page.banner_image}}');" ></div>
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    <div class="col-md-8">
+      <div class="card card-cascade wider reverse">
+        <div class="card-body card-body-cascade text-center">
+          <h2 class="font-weight-bold"><a>{{ page.title }}</a></h2>
+          <p>Written by <a><strong>Abby Madison</strong></a>{{ page.date | date: "%B %-d, %Y" }}</p>
+          <div class="social-counters">
+            <a class="btn btn-fb">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a class="btn btn-tw">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a class="btn btn-gplus">
+              <i class="fab fa-google-plus-g"></i>
+            </a>
           </div>
-        </div><!-- .col-md-7 close -->
+        </div>
+      </div>
+      <div class="mt-5">
+        <div class="row justify-content-center">
+          <div class="col-12">
+        {{ content }}
+        </div>
+        </div>
+        <p class="center-text" style="padding: 30px;">
+          <a href="{{ site.baseurl }}/blog">Back to News & Insights</a>
+        </p>
       </div>
     </div>
-  </section>
-</div>
-<p class="center-text" style="padding: 30px;">
-  <a href="{{ site.baseurl }}/blog">Back to blog</a>
-</p>
+  </div>
+</section>

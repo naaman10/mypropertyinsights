@@ -14,10 +14,16 @@ export const onValuationCreate = functions.database
     const postcode = valuationData.postcode
     console.log('new post code: ' + valuationData.postcode)
     const endPointFull = endPointUrl + postcode;
+    const growthEndpoint = 'https://api.propertydata.co.uk/growth?key=ZWEMVOCUO2&postcode=' + postcode;
 
     return axios.get(endPointFull)
     .then(response => {
       const propertyData = response.data;
       return admin.database().ref(`/valuation/${valuationId}/externalData`).update(propertyData.data);
+    })
+    return axios.get(growthEndpoint)
+    .then(response => {
+      const growthData = response.data;
+      return admin.database().ref(`/valuation/${valuationId}/growthData`).update(growthData.data);
     })
 })

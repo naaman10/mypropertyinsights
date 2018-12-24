@@ -3,26 +3,61 @@ function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
-
 function validate() {
   var $result = $("#result");
   var email = $("#startEmail").val();
   $result.text("");
-
   if (validateEmail(email)) {
     $('#staticEmail').val( email );
     $("#reportModal").modal('show');
-    $(".invalid-feedback").css('display', 'none');
+    $(".invalid-tooltip").css('display', 'none');
   } else {
-    $(".invalid-feedback").css('display', 'block');
+    $(".invalid-tooltip").css('display', 'block');
   }
   return false;
 }
-
 $("#reportStart").bind("click", validate);
 
+// popovers Initialization
+$(function () {
+    $('[data-toggle="popover"]').popover()
+});
 
+$(document).ready(function() {
+  $('#lookup_field').setupPostcodeLookup({
+    api_key: 'ak_jnk3962aUM3A5dVoZcgSAAO90yegm',
+    output_fields: {
+      line_1: '#first_line',
+      line_2: '#second_line',
+      line_3: '#third_line',
+      post_town: '#post_town',
+      postcode: '#postcode',
+      longitude: '#longitude',
+      latitude: '#latitude'
+    },
+    button: "#find-button",
+    input: "#postCodeInput",
+    dropdown_class: 'form-control',
+    onSearchCompleted: function (data) {
+      if (data.code === 2000) {
+        // success ID1 1QD
+        var postCode = $("#postCodeInput").val();
+        var pcTrim = $.trim(postCode);
+        window.location.href = '/valuation-form?postcode=' + pcTrim.replace(/\s/g, '');
+        console.log("Success!"+ JSON.stringify(data,2,2));
+      } else if (data.code === 4040) {
+        // Postcode does not exist ID1 KFA
+        $("#successStatus")
+          .prepend('<div class="invalid-tooltip"><i class="fas fa-exclamation-triangle"></i>Postcode can not be found, please try again."</div>');
+      } else {
+        $("#successStatus")
+          .html("Some error occurred");
+      }
+    }
+  });
+});
 // postcode search
+
 $('#lookup_field').setupPostcodeLookup({
   api_key: 'ak_jnk3962aUM3A5dVoZcgSAAO90yegm',
   output_fields: {
@@ -34,26 +69,29 @@ $('#lookup_field').setupPostcodeLookup({
     longitude: '#longitude',
     latitude: '#latitude'
   },
-  button: "#find-button",
+  button: "#find-button2",
   input: "#postCodeInput",
   dropdown_class: 'form-control',
   onAddressSelected: function() {
     $("#selectedAddress").slideDown('slow', function() {
     });
+    $("#leadSecTwo").css('display', 'block');
+  },
+  onSearchCompleted: function (data) {
+    if (data.code === 2000) {
+      // success ID1 1QD
+      var postCode = $("#postCodeInput").val();
+      var pcTrim = $.trim(postCode);
+      console.log("Success!"+ JSON.stringify(data,2,2));
+    } else if (data.code === 4040) {
+      // Postcode does not exist ID1 KFA
+      $("#successStatus")
+        .prepend('<div class="invalid-tooltip"><i class="fas fa-exclamation-triangle"></i>Postcode can not be found, please try again."</div>');
+    } else {
+      $("#successStatus")
+        .html("Some error occurred");
+    }
   }
-  // onSearchCompleted: function (data) {
-  //   if (data.code === 2000) {
-  //     // Success ID1 1QD
-  //     $("#successStatus")
-  //       .html("Success!"+ JSON.stringify(data,2,2));
-  //   } else if (data.code === 4040) {
-  //     // Postcode does not exist ID1 KFA
-  //     $("#successStatus")
-  //       .html("Postcode does not exist!");
-  //   } else {
-  //     $("#successStatus")
-  //       .html("Some error occurred");
-  //   }
 });
 //  Contact Form submit
 $("#contactSubmit").on('click', function(event) {
@@ -246,11 +284,22 @@ function reportAnimate() {
 $("#viewReportBtn").on('click', function() {
   event.preventDefault();
   var pageId = Cookies.get("valuation");
-  window.location.href = '/valuation?id=' + pageId;
+  window.location.href = '/dashboard?id=' + pageId;
 });
 $(document).ready(function() {
   var existingReport = Cookies.get("valuation");
   if ( existingReport !== null ) {
-    $(".navbar-nav").append('<li class="nav-item"><a class="nav-link reportInNav" href="/dashboard?id=' + existingReport + '">Your Report</a></li>')
+    $("#basicExampleNav").append('<a class="nav-link btn btn-primary reportInNav" href="/dashboard?id=' + existingReport + '">Your Report</a>')
+  }
+});
+$(document).ready(function() {
+
+  var urlString = window.location.href;
+  var url = new URL(urlString);
+  var postCode = url.searchParams.get("postcode");
+  if (postCode > "") {
+    $("#postCodeInput").val(postCode).siblings('label').addClass('active');
+    $("#find-button2").click();
+    $("#selectedAddress label").addClass('active');
   }
 });
