@@ -14,16 +14,17 @@ layout: default
       <div class="card card-cascade wider reverse">
         <div class="card-body card-body-cascade text-center">
           <h2 class="font-weight-bold"><a>{{ page.title }}</a></h2>
-          <p>Written by <a><strong>Abby Madison</strong></a>{{ page.date | date: "%B %-d, %Y" }}</p>
-          <div class="social-counters">
-            <a class="btn btn-fb">
+          <p>Written by <strong>{{page.author}}</strong> {{ page.date | date: "%B %-d, %Y" }}</p>
+          <div class="fb-share-button social-counters" data-href="{{site.url}}{{page.url}}" layout="button_count" data-size="large" data-mobile-iframe="false">
+            <a class="btn btn-fb fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}&amp;src=sdkpreparse" target="_blank" >
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a class="btn btn-tw">
+            <a class="btn btn-tw" href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank">
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
               <i class="fab fa-twitter"></i>
             </a>
-            <a class="btn btn-gplus">
-              <i class="fab fa-google-plus-g"></i>
+            <a class="btn btn-gplus" href="mailto:?subject=mypropertyinsisghts%20Dashboard&body={{page.title}} {{site.url}}{{page.url}}">
+              <i class="fas fa-envelope"></i>
             </a>
           </div>
         </div>
@@ -31,13 +32,26 @@ layout: default
       <div class="mt-5">
         <div class="row justify-content-center">
           <div class="col-12">
-        {{ content }}
+            <article class="post-content">
+              {{ content }}
+            </article>
         </div>
         </div>
         <p class="center-text" style="padding: 30px;">
-          <a href="{{ site.baseurl }}/blog">Back to News & Insights</a>
+          <a href="/news-insights">Back to News & Insights</a>
         </p>
       </div>
     </div>
   </div>
 </section>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

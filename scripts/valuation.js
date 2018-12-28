@@ -29,5 +29,5 @@ $(document).ready(function() {
     event.preventDefault();
     $(".mobileMenuVal").toggleClass('active');
   });
-  $(".btn-link").attr('href', 'mailto:?subject=mypropertyinsisghts%20Dashboard&body=' + urlString);
+  $(".emailVal").attr('href', 'mailto:?subject=mypropertyinsisghts%20Dashboard&body=My property dashboard ' + urlString);
 });
