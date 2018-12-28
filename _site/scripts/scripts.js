@@ -339,9 +339,3 @@ $(document).ready(function() {
     $("#selectedAddress label").addClass('active');
   }
 });
-$(document).ready(function() {
-  var pageId = Cookies.get("valuation");
-  if (pageId !== "") {
-    $(".navbar-nav").append('<li class="nav-item"><a class="nav-link reportLink" href="/valuation?id=' + pageId + '">your report</a></li>')
-  }
-});
