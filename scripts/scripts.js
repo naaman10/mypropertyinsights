@@ -195,7 +195,7 @@ $.validate({
 // Main Form submit
 $("#mainLeadFormSubmit").on('click', function(event) {
   var serviceConsentCheck = $("#serviceConsent").val();
-  if (serviceConsentCheck = "unchecked") {
+  if (serviceConsentCheck == "unchecked") {
     $("#mainLeadFormSubmit").append('Please check before continuing.');
   } else {
     $("#mainLeadFormSubmit").attr('disabled', 'disabled');
