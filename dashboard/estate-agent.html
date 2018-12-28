@@ -1,0 +1,78 @@
+<div class="row pt-3" id="dashboardValuation">
+
+  <div class="col-12 col-md-12">
+    <div id="estateAgentsMap" class="z-depth-1-half map-container" style="height: 500px">
+
+    </div>
+  </div>
+  <!-- <div class="col-12 col-md-4">
+    <section class="onlineAgent">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Our Recommendation</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Purple Bricks</h6>
+
+          <p class="card-text">
+            <ul>
+              <li>Online estate agent</li>
+              <li>Fixed Agent Fee: <small>from</small> £899</li>
+              <li>Local property expert</li>
+              <li>Availble 7 days a week</li>
+            </ul>
+          </p>
+          <a href="https://www.purplebricks.co.uk/book-your-free-valuation/find-your-address" class="btn btn-primary btn-purpleBricks" target="_blank">Book now</a>
+        </div>
+      </div>
+    </section>
+  </div> -->
+  <!-- <div class="col-12">
+    <div class="row">
+      <div class="col-12 col-md-3">
+
+      </div>
+      <div class="col-12 col-md-9">
+        <table class="table table-hover">
+          <thead class="black white-text">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+</div> -->
+</div>
+<script>
+  var urlString = window.location.href;
+  var url = new URL(urlString);
+  var valuationId = url.searchParams.get("id");
+  var reportRef = firebase.database().ref('valuation/' + valuationId);
+  reportRef.on('value', function(snapshot) {
+    var googleLink = 'https://www.google.com/maps/embed/v1/search?q=estate%20agents%20' + snapshot.val().town + '&key=AIzaSyBOfpuijnbCIdnygUY5hUlB4VbN1YHyuQQ';
+    $("#estateAgentsMap").html('<iframe style="height: 100%;" src="' + googleLink + '" frameborder="0" style="border:0" allowfullscreen></iframe>');
+  })
+</script>

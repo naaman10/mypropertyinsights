@@ -3,8 +3,6 @@ $(document).ready(function() {
   var url = new URL(urlString);
   var valuationId = url.searchParams.get("id");
   var reportRef = firebase.database().ref('valuation/' + valuationId);
-  var externalDataRef = firebase.database().ref('valuation/' + valuationId + '/externalData');
-  console.log(externalDataRef);
   reportRef.on('value', function(snapshot) {
     $("#addLine1").text(snapshot.val().add1);
     $("#addLine2").text(snapshot.val().add2);
@@ -12,15 +10,24 @@ $(document).ready(function() {
     $("#town").text(snapshot.val().town);
     $("#postcode").text(snapshot.val().postcode);
   });
-  externalDataRef.on('value', function(snapshot) {
-    $("#valPriceLow").text("£" + snapshot.val().flat.average);
-    $("#valPriceMed").text("£" + snapshot.val().terraced.average);
-    $("#valPriceHigh").text("£" + snapshot.val().detached.average);
+  $("main").load('/dashboard/valuation.html');
+  $(".navbar").addClass('fixed-top');
+  $(".navbar").css('backgroundColor', 'white');
+  $("body").css('paddingTop', '55px');
+  $(".nav-link").on('click', function(event) {
+    event.preventDefault();
+    var clickTab = $(this).data('name');
+    $("main").load('/dashboard/' + clickTab + '.html');
+    $(".nav-link.active").toggleClass('active');
+    $(this).toggleClass('active');
   });
-  reportRef.on('value', function(snapshot) {
-
-
-    var googleLink = 'https://www.google.com/maps/embed/v1/search?q=estate%20agents%20' + snapshot.val().town + '&key=AIzaSyBOfpuijnbCIdnygUY5hUlB4VbN1YHyuQQ';
-    $("#estateAgentsMap").html('<iframe height="450" frameborder="0" style="border:0" src="' + googleLink + '" allowfullscreen></iframe>');
-  })
+  $(".menuFab").on('click', function(event) {
+    event.preventDefault();
+    $(".mobileMenuVal").toggleClass('active');
+  });
+  $(".menuBody").on('click', function(event) {
+    event.preventDefault();
+    $(".mobileMenuVal").toggleClass('active');
+  });
+  $(".emailVal").attr('href', 'mailto:?subject=mypropertyinsisghts%20Dashboard&body=My property dashboard ' + urlString);
 });

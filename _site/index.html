@@ -16,13 +16,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="description" content="My Property Insights">
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
 <link rel="stylesheet" href="http://0.0.0.0:4000/css/styles.css">
 <title>Home | mypropertyinsights</title>
+<<<<<<< HEAD
 <link rel="shortcut icon" href="http://0.0.0.0:4000/img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="http://0.0.0.0:4000/img/favicon.ico" type="image/x-icon">
+=======
+<link rel="shortcut icon" href="https://www.mypropertyinsights.co.uk/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://www.mypropertyinsights.co.uk/img/favicon.ico" type="image/x-icon">
+<meta property="og:url"           content="https://www.mypropertyinsights.co.uk/" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="Home" />
+<meta property="og:description"   content="Free online proprty valuation & advice" />
+<meta property="og:image"         content="https://www.mypropertyinsights.co.uk/img/logo-black.png" />
+
+>>>>>>> dashboard
 
 
   </head>
@@ -36,6 +48,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+<<<<<<< HEAD
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="http://0.0.0.0:4000">myproperty<span>insights</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,6 +68,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </div>
     </nav>
+=======
+    <nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand waves-effect" href="https://www.mypropertyinsights.co.uk">myproperty<span>insights</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+  </button>
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="https://www.mypropertyinsights.co.uk/about">About
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.mypropertyinsights.co.uk/news-insights">News & Insights</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.mypropertyinsights.co.uk/contact">Contact</a>
+      </li>
+    </ul>
+</nav>
+>>>>>>> dashboard
 
 <header class="hero text-white text-center">
   <div class="overlay"></div>
@@ -62,68 +97,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="row">
       <div class="col-xl-9 mx-auto">
         <h1 class="logo">myproperty<span>insights</span></h1>
-        <h2 class="mb-5">Your property report awaits</h2>
-        <h3>Get started with your valuation...</h3>
+        <h2>Your property report awaits</h2>
       </div>
-      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form>
-          <div class="form-row">
-            <div class="col-12 col-md-9 mb-2 mb-md-0">
-              <input id="startEmail" type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-              <div class="invalid-feedback"><i class="fas fa-exclamation-triangle"></i> Please enter a valid email address.</div>
-            </div>
-            <div class="col-12 col-md-3">
-              <button id="reportStart" type="button" class="btn btn-block btn-lg btn-primary">Go</button>
+      <div class="col-md-6 col-lg-6 col-xl-6 mx-auto text-center">
+        <div class="card animated wow fadeInUp" data-wow-delay="0.3s">
+          <div class="card-body z-depth-2">
+            <h3>Enter your post code to start your free valuation...</h3>
+            <div class="md-form input-group mb-3">
+              <input type="text" class="form-control" id="postCodeInput" aria-label="Enter Post Code"
+                aria-describedby="postCodeInput">
+                <label for="postCodeInput" class="">Post Code</label>
+              <div class="input-group-append">
+                <button class="btn btn-md btn-primary m-0 px-3" type="button" id="find-button">Search</button>
+              </div>
+              <div id="successStatus"></div>
+              <div class="form-group mdb-select">
+                <div id="lookup_field"></div>
+              </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
 </header>
 
-<section class="features-icons bg-light text-center">
-  <div class="container">
+<div class="container-fluid">
+  <section class="my-5">
+    <h2 class="h1-responsive text-center my-5">Online Property Valuation</h2>
+    <p class="lead grey-text text-center w-responsive mx-auto mb-5">With our finger on the pulse of the UK property industry, check out our news and insights blog for the latest insider advice to selling.</p>
     <div class="row">
-      <div class="col-lg-6">
-        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-          <div class="features-icons-icon d-flex">
-            <i class="fas fa-pound-sign m-auto text-primary"></i>
-          </div>
-          <h3>Free</h3>
-          <p class="lead mb-0">Our service is completely free. If you decide to choose to market our property with one of our recommendations we charge the agent a small fee for the connection.</p>
-        </div>
+      <div class="col-lg-5 text-center text-lg-left">
+        <img class="img-fluid z-depth-1" src="https://www.mypropertyinsights.co.uk/img/house-1.jpg" alt="Old Cottage Image">
       </div>
-      <div class="col-lg-6">
-        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-          <div class="features-icons-icon d-flex">
-            <i class="fas fa-info m-auto text-primary"></i>
+      <div class="col-lg-7">
+        <div class="row mb-3">
+          <div class="col-1">
+            <i class="fas fa-pound-sign fa-lg green-icon"></i>
           </div>
-          <h3>Instant Valuation</h3>
-          <p class="lead mb-0">Genuinely instant, unlike the majority of online valuation services we deliver your report through the web browser in less than 30 seconds.</p>
+          <div class="col-xl-10 col-md-11 col-10">
+            <h5 class="mb-3">Free</h5>
+            <p class="grey-text">Our service is completely free. If you decide to choose to market our property with one of our recommendations we charge the agent a small fee for the connection.</p>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-          <div class="features-icons-icon d-flex">
-            <i class="fas fa-bolt  m-auto text-primary"></i>
+        <div class="row mb-3">
+          <div class="col-1">
+            <i class="fas fa-bolt fa-lg green-icon"></i>
           </div>
-          <h3>Keeping You Informed</h3>
-          <p class="lead mb-0">We assist in making an educated and informed decision not only will you receive a valuation figure, you’ll see estimated estate agent fee, average time your property may need to be on the market and different benefits each agent specializes in.</p>
+          <div class="col-xl-10 col-md-11 col-10">
+            <h5 class="mb-3">Instant Valuation</h5>
+            <p class="grey-text">Genuinely instant, unlike the majority of online valuation services we deliver your report through the web browser in less than 30 seconds.</p>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-          <div class="features-icons-icon d-flex">
-            <i class="fas fa-bolt  m-auto text-primary"></i>
+        <div class="row">
+          <div class="col-1">
+            <i class="fas fa-info fa-lg green-icon"></i>
           </div>
-          <h3>Property Selling Tips</h3>
-          <p class="lead mb-0">With our finger on the pulse of the UK property industry, check out our news and insights blog for the latest insider advice to selling.</p>
+          <div class="col-xl-10 col-md-11 col-10">
+            <h5 class="mb-3">Keeping You Informed</h5>
+            <p class="grey-text mb-0">We assist in making an educated and informed decision not only will you receive a valuation figure, you’ll see estimated estate agent fee, average time your property may need to be on the market and different
+              benefits each agent specializes in.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 
 
@@ -173,81 +212,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-    <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5>Get your report</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="mainLeadForm">
-          <div class="form-group row">
-            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
-              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="">
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-md-6">
-              <input type="text" id="firstName" class="form-control" placeholder="First name">
-            </div>
-            <div class="col-md-6">
-              <input type="text" id="lastName" class="form-control" placeholder="Last name">
-            </div>
-          </div>
-          <div class="input-group">
-            <input type="text" class="form-control" id="postCodeInput" placeholder="Enter Post Code" aria-label="Post Code Input" aria-describedby="find-button">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="find-button">Find</button>
-            </div>
-            <div id="successStatus"></div>
-          </div>
-          <div class="form-group">
-            <div id="lookup_field"></div>
-          </div>
-          <div class="form-group" id="selectedAddress">
-            <label>Address Line One</label>
-            <input class="form-control" id="first_line" type="text">
-            <label>Address Line Two</label>
-            <input class="form-control" id="second_line" type="text">
-            <label>Address Line Three</label>
-            <input class="form-control" id="third_line" type="text">
-            <label>Post Town</label>
-            <input class="form-control" id="post_town" type="text">
-            <label>Postcode</label>
-            <input class="form-control" id="postcode" type="text">
-            <input id="longitude" type="text">
-            <input id="latitude" type="text">
-
-            <div class="gdpr">
-              <p class="small">my property insights is committed to protecting and respecting your privacy, and we’ll only use your personal information to administer your account and to provide the products and services you requested from us. From time to time, we would
-                like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:</p>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="marketConsent">
-                  <label class="form-check-label" for="marketConsent">
-                    <p class="small">I would like to receive information from my propert insights.</p>
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="serviceConsent">
-                  <label class="form-check-label" for="serviceConsent">
-                    <p class="small">I agree and allow my property insight to process my data to provide my with my property report.</p>
-                  </label>
-                </div>
-            </div>
-            <button type="submit" id="mainLeadFormSubmit" class="btn btn-primary">Submit</button>
-          </div>
-
-        </form>
-      </div>
-      <pre id="successStatus"></pre>
-    </div>
-  </div>
-</div>
-
+    
 <!-- Report ready -->
 <div class="modal fade" id="reportReady" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -291,11 +256,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="http://0.0.0.0:4000/scripts/postcodes.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<<<<<<< HEAD
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="http://0.0.0.0:4000/scripts/scripts.js"></script>
+=======
+>>>>>>> dashboard
     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5049561.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script src="https://www.mypropertyinsights.co.uk/scripts/scripts.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
     <script>
       // Initialize Firebase

@@ -1,0 +1,75 @@
+<div class="row pt-3" id="dashboardValuation">
+
+</div>
+<div class="row pt-3" id="dashboardValChart">
+  <div class="col-12">
+    <div class="dashCard shadow-sm">
+      <div class="dashCardHeader">Price History</div>
+      <div class="dashCardBody">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var urlString = window.location.href;
+  var url = new URL(urlString);
+  var valuationId = url.searchParams.get("id");
+  var externalDataRef = firebase.database().ref('valuation/' + valuationId + '/externalData');
+  var growthDataRef = firebase.database().ref('valuation/' + valuationId + '/growthData');
+  externalDataRef.on('value', function (snapshot) {
+    var valFlatPrice = snapshot.val().flat.average;
+    var valTerracedPrice = snapshot.val().terraced.average;
+    var valDetachedPrice = snapshot.val().detached.average;
+    if (valTerracedPrice !== undefined) {
+      $("#dashboardValuation").append('<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-3"><div class="dashCard shadow-sm"><div class="dashCardHeader">Average Flat Price</div><div class="dashCardBody"><h2>£' + valTerracedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2></div></div></div>');
+    }
+    if (valFlatPrice !== undefined) {
+      $("#dashboardValuation").append('<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-3"><div class="dashCard shadow-sm"><div class="dashCardHeader">Average Terrace Price</div><div class="dashCardBody"><h2>£' + valFlatPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2></div></div></div>');
+    }
+    if (valDetachedPrice !== undefined) {
+      $("#dashboardValuation").append('<div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-3"><div class="dashCard shadow-sm"><div class="dashCardHeader">Average Detached Price</div><div class="dashCardBody"><h2>£' + valDetachedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2></div></div></div>');
+    }
+  });
+  growthDataRef.on('value', function(snapshot) {
+    var label0 = snapshot.val()[0][0];
+    var label1 = snapshot.val()[1][0];
+    var label2 = snapshot.val()[2][0];
+    var label3 = snapshot.val()[3][0];
+    var label4 = snapshot.val()[4][0];
+    var label5 = snapshot.val()[5][0];
+    var price0 = snapshot.val()[0][1];
+    var price1 = snapshot.val()[1][1];
+    var price2 = snapshot.val()[2][1];
+    var price3 = snapshot.val()[3][1];
+    var price4 = snapshot.val()[4][1];
+    var price5 = snapshot.val()[5][1];
+
+
+  //line
+  var ctxL = document.getElementById("lineChart").getContext('2d');
+  var myLineChart = new Chart(ctxL, {
+    type: 'line',
+    data: {
+      labels: [label0, label1, label2, label3, label4, label5],
+      datasets: [{
+          label: "Annual Growth",
+          data: [price0, price1, price2, price3, price4, price5],
+          backgroundColor: [
+            'rgba(44,161,61,.2)',
+          ],
+          borderColor: [
+            '#2CA13D',
+          ],
+          borderWidth: 2
+        }
+      ]
+    },
+    options: {
+      responsive: true
+    }
+  });
+});
+  </script>
+<!-- .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") -->

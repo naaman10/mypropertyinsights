@@ -1,0 +1,71 @@
+<div class="row pt-3" id="dashboardCalculation">
+  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+    <div class="dashCard shadow-sm">
+      <div class="dashCardHeader">Mortgage Calculator</div>
+      <div class="dashCardBody">
+        <div class="md-form">
+          <input type="number" id="mortAmount" class="form-control">
+          <label for="mortAmount">Mortgage Amount</label>
+        </div>
+        <div class="md-form">
+          <input value="3.92" type="number" id="mortInterest" class="form-control">
+          <label for="mortInterest">Interest Rate (%)</label>
+        </div>
+        <div class="md-form">
+          <input value="25" type="number" id="mortLength" class="form-control">
+          <label for="mortLength">Mortgage Length (years)</label>
+        </div>
+        <button type="button" class="btn btn-primary" id="mortButton">Calculate</button>
+        <div id="mortResult"></div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+    <div class="dashCard shadow-sm">
+      <div class="dashCardHeader">Stamp Duty Calculator</div>
+      <div class="dashCardBody">
+        <p>I am...</p>
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" id="sdFirstTime" name="sdRadios" checked>
+          <label class="custom-control-label" for="sdFirstTime">A first time buyer</label>
+        </div>
+
+
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" id="sdNextHome" name="sdRadios">
+          <label class="custom-control-label" for="sdNextHome">Buying my next property</label>
+        </div>
+
+
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" id="sdAdditional" name="sdRadios">
+          <label class="custom-control-label" for="sdAdditional">Buying an additional property</label>
+        </div>
+        <div class="md-form">
+          <input type="number" id="sdValue" class="form-control">
+          <label for="sdValue">Propert Value</label>
+        </div>
+        <button type="button" class="btn btn-primary" id="sdButton">Calculate</button>
+        <div id="sdResult"></div>
+      </div>
+    </div>
+  </div> -->
+</div>
+<script>
+  $("#mortInterest").siblings('label').addClass('active');
+  $("#mortLength").siblings('label').addClass('active');
+  $("#mortButton").on('click', function() {
+    $("#mortResult").text("");
+    var mortAmountStr = $("#mortAmount").val();
+    var mortAmount = parseInt(mortAmountStr);
+    var mortInterestStr = $("#mortInterest").val();
+    var mortInterest = parseInt(mortInterestStr);
+    var mortLengthStr = $("#mortLength").val();
+    var mortLength = parseInt(mortLengthStr);
+    var mortPerc = (mortAmount / 100) * mortInterest;
+    var mortCalcA = (mortAmount + mortPerc) / mortLength;
+    var mortCalcB = mortCalcA / 12;
+    $("#mortResult").append('<small>Monthly estimate from...<h2>£' + Math.round(mortCalcB) + '</h2>');
+    console.log(mortCalcB);
+  });
+</script>

@@ -6,11 +6,6 @@ p {
   font-size: 18px;
   font-weight: 300; }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-style: normal; }
-
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
@@ -24,24 +19,11 @@ h6 {
   font-weight: 300;
   color: #2da13d; }
 
-.navbar {
-  padding-top: 20px;
-  padding-bottom: 20px; }
-
-.navbar-dark .navbar-nav .nav-link {
-  color: #2da13d;
-  font-size: 16px;
-  text-transform: lowercase;
-  margin-right: 15px; }
-
-.navbar-dark .navbar-brand, .navbar-brand span {
-  font-size: 26px; }
-
-.navbar-dark .navbar-brand {
+.navbar-brand {
   color: black;
   font-weight: 200; }
 
-.navbar-dark .navbar-brand:hover {
+.navbar-brand:hover {
   color: black;
   font-weight: 400; }
 
@@ -55,9 +37,11 @@ h1.logo {
 h1.logo span {
   color: #2da13d; }
 
-.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
-  color: #2da13d;
-  background-color: rgba(45, 161, 61, 0.2); }
+.navbar-nav .nav-link, .navbar-nav .nav-link {
+  color: black; }
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+  color: #2da13d; }
 
 header.hero {
   position: relative;
@@ -83,7 +67,7 @@ header.hero h1 {
   font-size: 2rem;
   color: white; }
 
-header.hero h2, header.hero h3 {
+header.hero h2 {
   color: white; }
 
 @media (min-width: 768px) {
@@ -159,14 +143,12 @@ footer.footer {
 #addressSelectContainer, #selectedAddress {
   display: none; }
 
-.btn-primary {
-  background-color: #2da13d;
-  border-color: #2da13d;
-  border-radius: 0; }
+.btn.btn-primary, .btn.btn-primary:active, .btn.btn-primary:focus {
+  background-color: #2da13d !important; }
 
-.btn-primary:hover {
-  background-color: rgba(45, 161, 61, 0.8);
-  border-color: rgba(45, 161, 61, 0.8); }
+.btn.btn-outline-primary, .btn.btn-outline-primary:focus, .btn.btn-outline-primary:active {
+  border-color: #2da13d !important;
+  color: #2da13d !important; }
 
 .btn.btn-primary.btn-purpleBricks {
   background-color: #572266;
@@ -320,12 +302,218 @@ span.card-link {
   background-color: #572266; }
 
 #estateAgentsMap iframe {
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
 
 .onlineAgent ul {
   list-style: none;
   padding-left: 0; }
 
+<<<<<<< HEAD
 .navbar-dark .navbar-nav .nav-link.reportLink {
   background-color: #2da13d;
   color: white; }
+=======
+main {
+  background-color: #E0E0E0;
+  height: 100vh; }
+
+.addressBlock {
+  background-color: #F1F1F1;
+  padding: 20px; }
+
+.addressBlock p {
+  margin: 0;
+  line-height: normal; }
+
+.col-md-3.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+  min-height: 100vh;
+  max-height: 100vh;
+  position: fixed;
+  left: 0;
+  background-color: white !important; }
+
+.sidebar-sticky .addressBlock p {
+  font-weight: 400; }
+
+.sidebar-sticky a.nav-link {
+  background-color: white;
+  color: black;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 5px; }
+
+.sidebar-sticky a.nav-link i {
+  margin-right: 10px; }
+
+.sidebar-sticky a.nav-link i.fa-angle-right {
+  position: absolute;
+  margin-top: 3px;
+  right: 0;
+  margin-right: 1.25rem; }
+
+.sidebar-sticky a.nav-link.active, .sidebar-sticky a.nav-link:hover {
+  background-color: #2da13d;
+  color: white;
+  webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; }
+
+.nav-link.btn.btn-block {
+  text-align: left; }
+
+.dashCard {
+  background-color: white; }
+
+.dashCardHeader {
+  background-color: #f1f1f1;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px; }
+
+.dashCardBody {
+  text-align: center;
+  padding: 20px; }
+
+.navbar-dark .navbar-nav .nav-link.reportInNav {
+  background-color: #2da13d;
+  color: white; }
+
+i.green-icon {
+  color: #2da13d; }
+
+.md-form input:focus {
+  border-bottom: 1px solid #2da13d !important;
+  -webkit-box-shadow: 0 1px 0 0 #2da13d !important;
+  box-shadow: 0 1px 0 0 #2da13d !important; }
+
+.md-form input[type=date]:focus:not([readonly]) + label, .md-form input[type=datetime-local]:focus:not([readonly]) + label, .md-form input[type=email]:focus:not([readonly]) + label, .md-form input[type=number]:focus:not([readonly]) + label, .md-form input[type=password]:focus:not([readonly]) + label, .md-form input[type=search-md]:focus:not([readonly]) + label, .md-form input[type=search]:focus:not([readonly]) + label, .md-form input[type=tel]:focus:not([readonly]) + label, .md-form input[type=text]:focus:not([readonly]) + label, .md-form input[type=time]:focus:not([readonly]) + label, .md-form input[type=url]:focus:not([readonly]) + label, .md-form textarea.md-textarea:focus:not([readonly]) + label {
+  color: #2da13d !important; }
+
+.card.card-cascade.wider {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: transparent; }
+
+.view {
+  position: relative;
+  overflow: hidden;
+  cursor: default; }
+
+.card.card-cascade .view.view-cascade {
+  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: .25rem;
+  border-radius: .25rem; }
+
+.card.card-cascade.wider .view.view-cascade {
+  z-index: 2; }
+
+.view img, .view video {
+  position: relative;
+  display: block; }
+
+.card.card-cascade.wider .card-body.card-body-cascade {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  margin-left: 4%;
+  margin-right: 4%;
+  background: #fff;
+  z-index: 1;
+  -webkit-border-radius: 0 0 .25rem .25rem;
+  border-radius: 0 0 .25rem .25rem; }
+
+.card.card-cascade.wider.reverse .card-body.card-body-cascade {
+  z-index: 3;
+  margin-top: -5rem;
+  -webkit-border-radius: .25rem;
+  border-radius: .25rem;
+  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15); }
+
+.post-img {
+  width: 100%;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+#leadSecTwo {
+  display: none; }
+
+.menuFab {
+  position: fixed;
+  z-index: 99;
+  bottom: 0px;
+  right: 0px; }
+
+.menuFab .btn-floating {
+  background-color: #2da13d;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin: 10px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 15px; }
+
+.menuFab .btn-floating i {
+  font-size: 30px;
+  color: white; }
+
+.mobileMenuVal {
+  display: none; }
+
+.mobileMenuVal.active {
+  display: inline;
+  position: fixed;
+  z-index: 100;
+  bottom: 90px;
+  right: 15px; }
+
+.menuBody {
+  height: auto; }
+
+.menuBody .nav-item {
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  text-align: center;
+  color: #2da13d; }
+
+.menuBody .nav-link {
+  padding-top: 12.5px; }
+
+#lookup_field #idpc_button {
+  display: none; }
+
+.help-block.form-error {
+  background-color: #b94a48;
+  color: white;
+  padding: 5px;
+  border-radius: 3px; }
+
+#dashboardCalculation .custom-control.custom-radio, #dashboardCalculation .dashCardBody p {
+  text-align: left; }
+
+a.emailVal {
+  margin-top: 5px;
+  font-size: 14px;
+  padding: 5px;
+  color: black; }
+
+a.emailVal:hover {
+  background-color: #E0E0E0; }
+
+.fb-xfbml-parse-ignore i, .btn.btn-tw i, .btn.btn-gplus i {
+  color: black; }
+
+.post-content {
+  padding: 15px; }
+>>>>>>> dashboard

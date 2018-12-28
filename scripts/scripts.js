@@ -3,26 +3,78 @@ function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
-
 function validate() {
   var $result = $("#result");
   var email = $("#startEmail").val();
   $result.text("");
-
   if (validateEmail(email)) {
     $('#staticEmail').val( email );
     $("#reportModal").modal('show');
-    $(".invalid-feedback").css('display', 'none');
+    $(".invalid-tooltip").css('display', 'none');
   } else {
-    $(".invalid-feedback").css('display', 'block');
+    $(".invalid-tooltip").css('display', 'block');
   }
   return false;
 }
+$("#mainLeadFormSubmit").bind("click", validate);
 
-$("#reportStart").bind("click", validate);
-
-
+// popovers Initialization
+$(function () {
+    $('[data-toggle="popover"]').popover()
+});
+$(document).ready(function() {
+  $("#marketConsent").on('click', function() {
+    var marketTest = $("#marketConsent").val();
+    if (marketTest == "checked") {
+      $("#marketConsent").val("unchecked");
+    } else if (marketTest == "unchecked") {
+      $("#marketConsent").val("checked");
+    }
+  });
+  $("#serviceConsent").on('click', function() {
+    var serviceTest = $("#serviceConsent").val();
+    if (serviceTest == "checked") {
+      $("#serviceConsent").val("unchecked");
+    } else if (serviceTest == "unchecked") {
+      $("#serviceConsent").val("checked");
+    }
+  });
+});
+$(document).ready(function() {
+  $('#lookup_field').setupPostcodeLookup({
+    api_key: 'ak_jnk3962aUM3A5dVoZcgSAAO90yegm',
+    output_fields: {
+      line_1: '#first_line',
+      line_2: '#second_line',
+      line_3: '#third_line',
+      post_town: '#post_town',
+      postcode: '#postcode',
+      longitude: '#longitude',
+      latitude: '#latitude'
+    },
+    button: "#find-button",
+    input: "#postCodeInput",
+    dropdown_class: 'form-control',
+    onSearchCompleted: function (data) {
+      if (data.code === 2000) {
+        // success ID1 1QD
+        var postCode = $("#postCodeInput").val();
+        var pcTrim = $.trim(postCode);
+        window.location.href = '/valuation-form?postcode=' + pcTrim.replace(/\s/g, '');
+        console.log("Success!"+ JSON.stringify(data,2,2));
+      } else if (data.code === 4040) {
+        // Postcode does not exist ID1 KFA
+        $("#successStatus")
+          .prepend('<div class="invalid-tooltip"><i class="fas fa-exclamation-triangle"></i>Postcode can not be found, please try again."</div>');
+      } else {
+        $("#successStatus")
+          .html("Some error occurred");
+      }
+    }
+  });
+});
 // postcode search
+
 $('#lookup_field').setupPostcodeLookup({
   api_key: 'ak_jnk3962aUM3A5dVoZcgSAAO90yegm',
   output_fields: {
@@ -34,26 +86,30 @@ $('#lookup_field').setupPostcodeLookup({
     longitude: '#longitude',
     latitude: '#latitude'
   },
-  button: "#find-button",
+  button: "#find-button2",
   input: "#postCodeInput",
   dropdown_class: 'form-control',
   onAddressSelected: function() {
     $("#selectedAddress").slideDown('slow', function() {
     });
+    $('#selectedAddress label').addClass('active');
+    $("#leadSecTwo").css('display', 'block');
+  },
+  onSearchCompleted: function (data) {
+    if (data.code === 2000) {
+      // success ID1 1QD
+      var postCode = $("#postCodeInput").val();
+      var pcTrim = $.trim(postCode);
+      console.log("Success!"+ JSON.stringify(data,2,2));
+    } else if (data.code === 4040) {
+      // Postcode does not exist ID1 KFA
+      $("#successStatus")
+        .prepend('<div class="invalid-tooltip"><i class="fas fa-exclamation-triangle"></i>Postcode can not be found, please try again."</div>');
+    } else {
+      $("#successStatus")
+        .html("Some error occurred");
+    }
   }
-  // onSearchCompleted: function (data) {
-  //   if (data.code === 2000) {
-  //     // Success ID1 1QD
-  //     $("#successStatus")
-  //       .html("Success!"+ JSON.stringify(data,2,2));
-  //   } else if (data.code === 4040) {
-  //     // Postcode does not exist ID1 KFA
-  //     $("#successStatus")
-  //       .html("Postcode does not exist!");
-  //   } else {
-  //     $("#successStatus")
-  //       .html("Some error occurred");
-  //   }
 });
 //  Contact Form submit
 $("#contactSubmit").on('click', function(event) {
@@ -126,8 +182,23 @@ else {
 });
 
 
-// Form submit
+// Main Form submit validation
+var config = {
+  form : '#mainLeadForm'
+};
+$.validate({
+ modules : 'jsconf, security, toggleDisabled',
+ onModulesLoaded : function() {
+  $.setupValidation(config);
+ }
+});
+// Main Form submit
 $("#mainLeadFormSubmit").on('click', function(event) {
+  var serviceConsentCheck = $("#serviceConsent").val();
+  if (serviceConsentCheck = "unchecked") {
+    $("#mainLeadFormSubmit").append('Please check before continuing.');
+  } else {
+    $("#mainLeadFormSubmit").attr('disabled', 'disabled');
   event.preventDefault();
   var firstName = $("#firstName").val();
   var lastName = $("#lastName").val();
@@ -138,11 +209,9 @@ $("#mainLeadFormSubmit").on('click', function(event) {
   var town = $("#post_town").val();
   var postCode = $("#postcode").val();
   var marketConsent = $("#marketConsent").val();
-  var serviceConsentNum = $("#serviceConsent").length;
-  var serviceConsentString = serviceConsentNum.toString();
+  var serviceConsent = $("#serviceConsent").val();
   var longitude = $("#longitude").val();
   var latitude = $("#latitude").val();
-  if (serviceConsentString == "1") {
     var theForm = {
       "fields": [
         {
@@ -183,7 +252,7 @@ $("#mainLeadFormSubmit").on('click', function(event) {
         },
         {
           "name": "service_consent",
-          "value": serviceConsentNum
+          "value": serviceConsent
         }
       ]
     }
@@ -234,18 +303,41 @@ $("#mainLeadFormSubmit").on('click', function(event) {
     .always(function() {
       console.log("complete");
     });
-  } else {
   }
 });
+
 function reportAnimate() {
   $('.flipper').addClass('flipped');
   $(".front").css('display', 'none');
   $(".back").css('display', 'inline-block');
 };
+// send to dashboard
 $("#viewReportBtn").on('click', function() {
   event.preventDefault();
   var pageId = Cookies.get("valuation");
-  window.location.href = '/valuation?id=' + pageId;
+  window.location.href = '/dashboard?id=' + pageId;
+});
+// existing report
+$(document).ready(function() {
+  var existingReport = Cookies.get("valuation");
+  console.log(existingReport);
+  if (existingReport > "") {
+    $("#basicExampleNav").append('<a class="nav-link btn btn-primary btn-sm waves-effect reportInNav" href="/dashboard?id=' + existingReport + '">Your Report</a>')
+  }
+   else {
+    $("#basicExampleNav").append('<a class="nav-link btn btn-primary btn-sm waves-effect reportInNav" href="/valuation-form">Start Your Report</a>')
+  }
+});
+// carry postcode to valuation form
+$(document).ready(function() {
+  var urlString = window.location.href;
+  var url = new URL(urlString);
+  var postCode = url.searchParams.get("postcode");
+  if (postCode > "") {
+    $("#postCodeInput").val(postCode).siblings('label').addClass('active');
+    $("#find-button2").click();
+    $("#selectedAddress label").addClass('active');
+  }
 });
 $(document).ready(function() {
   var pageId = Cookies.get("valuation");
