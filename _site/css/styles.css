@@ -309,11 +309,10 @@ span.card-link {
   list-style: none;
   padding-left: 0; }
 
-<<<<<<< HEAD
 .navbar-dark .navbar-nav .nav-link.reportLink {
   background-color: #2da13d;
   color: white; }
-=======
+
 main {
   background-color: #E0E0E0;
   height: 100vh; }
@@ -511,9 +510,8 @@ a.emailVal {
 a.emailVal:hover {
   background-color: #E0E0E0; }
 
-.fb-xfbml-parse-ignore i, .btn.btn-tw i, .btn.btn-gplus i {
-  color: black; }
-
 .post-content {
   padding: 15px; }
->>>>>>> dashboard
+
+.fb-xfbml-parse-ignore i, .btn.btn-tw i, .btn.btn-gplus i {
+  color: black; }
