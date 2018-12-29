@@ -515,3 +515,7 @@ a.emailVal:hover {
 
 .fb-xfbml-parse-ignore i, .btn.btn-tw i, .btn.btn-gplus i {
   color: black; }
+
+.intro-2 {
+  background-image: url("../img/background-30.png");
+  height: 60vh; }
