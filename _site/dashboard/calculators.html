@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
     <div class="dashCard shadow-sm">
       <div class="dashCardHeader">Stamp Duty Calculator</div>
       <div class="dashCardBody">
@@ -49,7 +49,7 @@
         <div id="sdResult"></div>
       </div>
     </div>
-  </div> -->
+  </div>
 </div>
 <script>
   $("#mortInterest").siblings('label').addClass('active');
@@ -67,5 +67,67 @@
     var mortCalcB = mortCalcA / 12;
     $("#mortResult").append('<small>Monthly estimate from...<h2>£' + Math.round(mortCalcB) + '</h2>');
     console.log(mortCalcB);
+  });
+  $("#sdButton").on('click', function(event) {
+    event.preventDefault();
+    $("#sdResult").text("");
+    if ($('#sdFirstTime').is(':checked')) {
+      if ($("#sdValue").val() <= 300000) {
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£0.00</h2><p class="small">...as a first time buyer you are entitled to a tax relief for the first £300,000</div>');
+      }
+      if ($("#sdValue").val() > 300000) {
+        var sd300Up = (($("#sdValue").val()) - 300000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd300Up * 5).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...as a first time buyer your stamp duty is 5% on the property value above £300,000</div>');
+      }
+      if ($("#sdValue").val() > 499999) {
+        var sd500Up = (($("#sdValue").val()) - 125000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd500Up * 5).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...as a first time buyer your stamp duty, on a property valued above £500,000, is 5% of the amount surpassing £125,000.</div>');
+      }
+    }
+    if ($('#sdNextHome').is(':checked')) {
+      if ($("#sdValue").val() <= 125000) {
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£0.00</h2><p class="small">...stamp duty is 0% on properties below £125,000.</div>');
+      }
+      if ($("#sdValue").val() > 125001) {
+        var sd125Up = (($("#sdValue").val()) - 125000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd125Up * 2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...stamp duty is 2% of the property value above £125,000 on properties between £125,000 & £250,000.</div>');
+      }
+      if ($("#sdValue").val() > 250001) {
+        var sd250Up = (($("#sdValue").val()) - 125000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd250Up * 5).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...stamp duty is 5% of the property value above £125,000 on properties between £250,001 & £950,000.</div>');
+      }
+      if ($("#sdValue").val() > 925001) {
+        var sd925Up = (($("#sdValue").val()) - 125000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd925Up * 10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...stamp duty is 10% of the property value above £125,000 on properties between £925,001 & £1,500,000.</div>');
+      }
+      if ($("#sdValue").val() > 1500000) {
+        var sd150mUp = (($("#sdValue").val()) - 125000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd150mUp * 12).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...stamp duty is 12% of the property value above £125,000 on properties over £1,500,000.</div>');
+      }
+    }
+    if ($('#sdAdditional').is(':checked')) {
+      if ($("#sdValue").val() <= 125000) {
+        var sd125Down = (($("#sdValue").val()) - 125000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd125Down * 3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...stamp duty is 3% on properties upto £125,000.</div>');
+      }
+      if ($("#sdValue").val() > 125001) {
+        var sd125Up = (($("#sdValue").val()) - 125000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd125Up * 5).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...stamp duty is 2% of the property value above £125,000 on properties between £125,000 & £250,000.</div>');
+      }
+      if ($("#sdValue").val() > 250001) {
+        var sd250Up = (($("#sdValue").val()) - 125000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd250Up * 8).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...stamp duty is 5% of the property value above £125,000 on properties between £250,001 & £950,000.</div>');
+      }
+      if ($("#sdValue").val() > 925001) {
+        var sd925Up = (($("#sdValue").val()) - 125000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd925Up * 13).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...stamp duty is 10% of the property value above £125,000 on properties between £925,001 & £1,500,000.</div>');
+      }
+      if ($("#sdValue").val() > 1500000) {
+        var sd150mUp = (($("#sdValue").val()) - 125000) / 100;
+        $("#sdResult").html('<div><p class="small">Your Stamp Duty is...</p><h2>£' + (sd150mUp * 15).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</h2><p class="small">...stamp duty is 12% of the property value above £125,000 on properties over £1,500,000.</div>');
+      }
+    } else if ($("#sdValue").val() == "") {
+      $("#sdResult").html('<div><p class="small">Please enter a proprty value.</p></div>');
+    }
   });
 </script>
