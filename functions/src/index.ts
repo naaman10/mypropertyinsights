@@ -31,3 +31,16 @@ export const onGrowthCreate = functions.database
       return admin.database().ref(`/valuation/${valuationId}/growthData`).update(growthData.data);
     })
   })
+export const onDemoCreate = functions.database
+  .ref('/valuation/{valuationId}')
+  .onCreate((snapshot, context) => {
+    const valuationId = context.params.valuationId
+    const valuationData = snapshot.val()
+    const postcode = valuationData.postcode
+    const demoEndpoint = 'https://api.propertydata.co.uk/demographics?key=ZWEMVOCUO2&postcode=' + postcode;
+    return axios.get(demoEndpoint)
+    .then(response => {
+      const demoData = response.data;
+      return admin.database().ref(`/valuation/${valuationId}/demoData`).update(demoData.data);
+    })
+  })

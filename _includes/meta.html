@@ -3,3 +3,6 @@
 <meta property="og:title"         content="{{page.title}}" />
 <meta property="og:description"   content="Free online proprty valuation & advice" />
 <meta property="og:image"         content="https://www.mypropertyinsights.co.uk/img/logo-black.png" />
+{%if site.keywords %}
+<meta name="keywords" content="{{ site.keywords | join: ', ' | escape }}"/>
+{%endif %}

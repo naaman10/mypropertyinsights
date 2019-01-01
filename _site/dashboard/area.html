@@ -1,0 +1,135 @@
+<div class="row pt-3" id="dashboardValuation">
+
+  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+    <div class="dashCard shadow-sm animated fadeInDown">
+      <div class="dashCardHeader">Social Grades</div>
+      <div class="dashCardBody">
+        <canvas id="socialGradeChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+    <div class="dashCard shadow-sm">
+      <div class="dashCardHeader">Current Planning Applications</div>
+      <div class="dashCardBody">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>Erection of a rear extension at second floor level, on...</td>
+              <td><button class="btn btn-info btn-sm">view</button></td>
+            </tr>
+            <tr>
+              <td>Jacob</td>
+              <td><button class="btn btn-info btn-sm">view</button></td>
+            </tr>
+            <tr>
+              <td>Larry</td>
+              <td><button class="btn btn-info btn-sm">view</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> -->
+  <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+    <div class="dashCard shadow-sm animated fadeInDown">
+      <div class="dashCardHeader">Age Distribution (%)</div>
+      <div class="dashCardBody">
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-3">
+    <div class="dashCard shadow-sm">
+      <div class="dashCardHeader">Crime Rate</div>
+      <div class="dashCardBody">
+        <h1>74</h1>
+        <p class="small">Crimes per 1000 people</p>
+      </div>
+    </div>
+  </div> -->
+
+</div>
+
+
+<script>
+  var urlString = window.location.href;
+  var url = new URL(urlString);
+  var valuationId = url.searchParams.get("id");
+  var demoDataRef = firebase.database().ref('valuation/' + valuationId + '/demoData');
+  var demoAgeRef = firebase.database().ref('valuation/' + valuationId + '/demoData/age');
+  demoDataRef.on('value', function(snapshot) {
+    var ab = snapshot.val().social_grade.ab;
+    var c1 = snapshot.val().social_grade.c1;
+    var c2 = snapshot.val().social_grade.c2;
+    var de = snapshot.val().social_grade.de;
+    var ctxD = document.getElementById("socialGradeChart").getContext('2d');
+    var myLineChart = new Chart(ctxD, {
+      type: 'doughnut',
+      data: {
+        labels: ["ab middle class", "c1 lower middle class", "c2 skilled working class", "de working class"],
+        datasets: [{
+          data: [ab, c1, c2, de],
+          backgroundColor: ["rgba(45, 161, 61)", "rgba(7,59,58)", "rgba(44,54,63)", "rgba(107,109,118)"],
+          hoverBackgroundColor: ["rgba(45, 161, 61,.8)", "rgba(7,59,58,.8)", "rgba(44,54,63,.8)", "rgba(107,109,118,.8)"],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        legend:{
+          display: true,
+          position: "left"
+        }
+      }
+    });
+  });
+demoAgeRef.on('value', function(snapshot) {
+  var age0 = snapshot.child('0-4').val();
+  var age1 = snapshot.child('5-9').val();
+  var age2 = snapshot.child('10-14').val();
+  var age3 = snapshot.child('15-19').val();
+  var age4 = snapshot.child('20-24').val();
+  var age5 = snapshot.child('25-29').val();
+  var age6 = snapshot.child('30-34').val();
+  var age7 = snapshot.child('35-39').val();
+  var age8 = snapshot.child('40-44').val();
+  var age9 = snapshot.child('45-49').val();
+  var age10 = snapshot.child('50-54').val();
+  var age11 = snapshot.child('55-59').val();
+  var age12 = snapshot.child('60-64').val();
+  var age13 = snapshot.child('65-69').val();
+  var age14 = snapshot.child('70-74').val();
+  var age15 = snapshot.child('75-79').val();
+  var age16 = snapshot.child('80-84').val();
+  var age17 = snapshot.child('85-89').val();
+  var ctxB = document.getElementById("barChart").getContext('2d');
+  var myBarChart = new Chart(ctxB, {
+    type: 'bar',
+    data: {
+      labels: ["0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39","40-44","45-49","50-54","55-59","60-64","65-69","70-74","75-79","80-84","85-89"],
+      datasets: [{
+        label: '% of pop',
+        data: [age0,age1,age2,age3,age4,age5,age6,age7,age8,age9,age10,age11,age12,age13,age14,age15,age16,age17],
+        backgroundColor: 'rgba(45, 161, 61)',
+        borderColor: 'rgba(45, 161, 61)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      },
+      legend: false
+    }
+  });
+  });
+//bar
+
+
+</script>
