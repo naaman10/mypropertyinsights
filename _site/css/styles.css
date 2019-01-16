@@ -46,22 +46,15 @@ h1.logo span {
 header.hero {
   position: relative;
   background-color: #343a40;
-  background: url("../img/background.jpeg") no-repeat center center;
+  background: url("../img/iphoneX.png") no-repeat center center;
   padding-top: 8rem;
   padding-bottom: 8rem;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; }
-
-header.hero .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3; }
+  background-size: cover;
+  -webkit-clip-path: polygon(0 0, 1600px 0, 1600px 87%, 0 100%);
+  clip-path: polygon(0 0, 1600px 0, 1600px 87%, 0 100%); }
 
 header.hero h1 {
   font-size: 2rem;
@@ -69,6 +62,18 @@ header.hero h1 {
 
 header.hero h2 {
   color: white; }
+
+.form-inline.pcForm {
+  width: 100%;
+  text-align: center; }
+
+.form-inline.pcForm .form-group.mx-sm-3.mb-2 {
+  margin-left: auto !important;
+  margin-right: auto !important; }
+
+#postCodeInput {
+  border-radius: 4px;
+  border-color: transparent; }
 
 @media (min-width: 768px) {
   header.hero {
