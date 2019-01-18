@@ -75,6 +75,10 @@ header.hero h2 {
   border-radius: 4px;
   border-color: transparent; }
 
+.form-control {
+  border: 0;
+  height: 45.375px; }
+
 @media (min-width: 768px) {
   header.hero {
     padding-top: 8rem;
@@ -191,7 +195,17 @@ input, .form-control-lg, .input-group-lg > .form-control, .input-group-lg > .inp
 #newsHeader {
   background-image: url("../img/new-insights.jpeg");
   background-position: center bottom;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.82); }
+
+#newsHeader .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3; }
 
 a.card {
   color: black; }
@@ -322,6 +336,11 @@ main {
   background-color: #E0E0E0;
   height: 100vh; }
 
+#mainLeadForm {
+  background-color: #EAEAEA;
+  padding: 20px;
+  border-radius: 4px; }
+
 .addressBlock {
   background-color: #F1F1F1;
   padding: 20px; }
@@ -448,9 +467,6 @@ i.green-icon {
   background-repeat: no-repeat;
   background-size: cover; }
 
-#leadSecTwo {
-  display: none; }
-
 .menuFab {
   position: fixed;
   z-index: 99;
@@ -572,3 +588,6 @@ span.mobMenuLabel {
 
 .valError p.small {
   margin-bottom: 0px; }
+
+.sidebar-sticky p.small {
+  text-align: center; }

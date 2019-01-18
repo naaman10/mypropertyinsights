@@ -21,12 +21,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://www.mypropertyinsights.co.uk/css/styles.css">
-<title>Valuation | mypropertyinsights</title>
+<title>Start Your Report | mypropertyinsights</title>
 <link rel="shortcut icon" href="https://www.mypropertyinsights.co.uk/img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="https://www.mypropertyinsights.co.uk/img/favicon.ico" type="image/x-icon">
 <meta property="og:url"           content="https://www.mypropertyinsights.co.uk/valuation-form" />
 <meta property="og:type"          content="website" />
-<meta property="og:title"         content="Valuation" />
+<meta property="og:title"         content="Start Your Report" />
 <meta property="og:description"   content="Free online proprty valuation & advice" />
 <meta property="og:image"         content="https://www.mypropertyinsights.co.uk/img/logo-black.png" />
 
@@ -67,12 +67,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </ul>
 </nav>
 
-<header class="hero text-white text-center" id="newsHeader">
+<header class="hero text-white text-center" id="newsHeader" style="background-image: url('https://www.mypropertyinsights.co.uk//img/form-header.jpg');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
-        <h1 class="mb-2">Valuation</h1>
+        <h1 class="mb-2">Start Your Report</h1>
+        
+        <h3>Build your free personalised property report</h3>
+        
+        <h3>
       </div>
     </div>
   </div>
@@ -81,15 +85,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-8">
-      <form id="mainLeadForm">
+      <form id="mainLeadForm" class="animated fadeInUp">
         <div class="row">
           <div class="col-12">
             <section id="leadSecOne">
-              <h2>Step 1. Your Property</h2>
+              <h2>Step 1. About Your Property</h2>
 
-              <div class="md-form input-group mb-3">
-                <input type="text" class="form-control" id="postCodeInput" aria-label="Enter Post Code" aria-describedby="postCodeInput">
-                <label for="postCodeInput" class="">Post Code</label>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" id="postCodeInput" aria-label="Enter Post Code" aria-describedby="postCodeInput" placeholder="Post Code">
                 <div class="input-group-append">
                   <button class="btn btn-outline-primary waves-effect m-0 px-3" type="button" id="find-button2">Search</button>
                 </div>
@@ -100,23 +103,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
 
               <div class="form-group" id="selectedAddress">
-                <div class="md-form">
+                <div class="">
                   <label for="first_line">Address Line One</label>
                   <input class="form-control" id="first_line" type="text">
                 </div>
-                <div class="md-form">
+                <div class="">
                   <label for="second_line">Address Line Two</label>
                   <input class="form-control" id="second_line" type="text">
                 </div>
-                <div class="md-form">
+                <div class="">
                   <label for="third_line">Address Line Three</label>
                   <input class="form-control" id="third_line" type="text">
                 </div>
-                <div class="md-form">
+                <div class="">
                   <label for="post_town">Town/City</label>
                   <input class="form-control" id="post_town" type="text">
                 </div>
-                <div class="md-form">
+                <div class="">
                   <label for="postcode">Postcode</label>
                   <input class="form-control" id="postcode" type="text" data-validation="required" data-validation-error-msg="Please enter a Post Code">
                 </div>
@@ -129,25 +132,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="row">
           <div class="col-12">
-            <section id="leadSecTwo" class="animated flipInY">
+            <section id="leadSecTwo">
 
 
               <h2>Step 2. About You</h2>
-              <div class="md-form">
-                <input type="email" id="staticEmail" name="firstName" class="form-control" data-validation="email" data-validation-error-msg="Please enter a valid email address">
+              <div class="">
                 <label for="staticEmail" class="">Email</label>
+                <input type="email" id="staticEmail" name="firstName" class="form-control" data-validation="email" data-validation-error-msg="Please enter a valid email address" placeholder="Email Address">
+
               </div>
 
 
-              <div class="md-form mb-0">
-                <input type="text" id="firstName" name="firstName" class="form-control" data-validation="required" data-validation-error-msg="Please enter your name">
+              <div class="mb-0">
                 <label for="firstName" class="">First name</label>
+                <input type="text" id="firstName" name="firstName" class="form-control" data-validation="required" data-validation-error-msg="Please enter your name" placeholder="First Name">
+
               </div>
 
 
-              <div class="md-form mb-0">
-                <input type="text" id="lastName" name="lastName" class="form-control" data-validation="required" data-validation-error-msg="Please enter your name">
+              <div class="mb-0">
                 <label for="lastName" class="">Last name</label>
+                <input type="text" id="lastName" name="lastName" class="form-control" data-validation="required" data-validation-error-msg="Please enter your name" placeholder="Last Name">
+
               </div>
               <div class="gdpr">
                 <p class="small">my property insights is committed to protecting and respecting your privacy, and we’ll only use your personal information to administer your valuation and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:</p>
@@ -228,7 +234,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="flipper">
               <div class="front">
                 <div id="viewwReportLoading">
-                  <p>Building your report</p>
+                  <p class="reportLoadingText">Analysing recent sold prices</p>
                   <div class="spinner">
                     <div class="bounce1"></div>
                     <div class="bounce2"></div>

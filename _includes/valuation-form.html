@@ -1,15 +1,14 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-8">
-      <form id="mainLeadForm">
+      <form id="mainLeadForm" class="animated fadeInUp">
         <div class="row">
           <div class="col-12">
             <section id="leadSecOne">
-              <h2>Step 1. Your Property</h2>
+              <h2>Step 1. About Your Property</h2>
 
-              <div class="md-form input-group mb-3">
-                <input type="text" class="form-control" id="postCodeInput" aria-label="Enter Post Code" aria-describedby="postCodeInput">
-                <label for="postCodeInput" class="">Post Code</label>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" id="postCodeInput" aria-label="Enter Post Code" aria-describedby="postCodeInput" placeholder="Post Code">
                 <div class="input-group-append">
                   <button class="btn btn-outline-primary waves-effect m-0 px-3" type="button" id="find-button2">Search</button>
                 </div>
@@ -20,23 +19,23 @@
               </div>
 
               <div class="form-group" id="selectedAddress">
-                <div class="md-form">
+                <div class="">
                   <label for="first_line">Address Line One</label>
                   <input class="form-control" id="first_line" type="text">
                 </div>
-                <div class="md-form">
+                <div class="">
                   <label for="second_line">Address Line Two</label>
                   <input class="form-control" id="second_line" type="text">
                 </div>
-                <div class="md-form">
+                <div class="">
                   <label for="third_line">Address Line Three</label>
                   <input class="form-control" id="third_line" type="text">
                 </div>
-                <div class="md-form">
+                <div class="">
                   <label for="post_town">Town/City</label>
                   <input class="form-control" id="post_town" type="text">
                 </div>
-                <div class="md-form">
+                <div class="">
                   <label for="postcode">Postcode</label>
                   <input class="form-control" id="postcode" type="text" data-validation="required" data-validation-error-msg="Please enter a Post Code">
                 </div>
@@ -49,25 +48,28 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <section id="leadSecTwo" class="animated flipInY">
+            <section id="leadSecTwo">
 
 
               <h2>Step 2. About You</h2>
-              <div class="md-form">
-                <input type="email" id="staticEmail" name="firstName" class="form-control" data-validation="email" data-validation-error-msg="Please enter a valid email address">
+              <div class="">
                 <label for="staticEmail" class="">Email</label>
+                <input type="email" id="staticEmail" name="firstName" class="form-control" data-validation="email" data-validation-error-msg="Please enter a valid email address" placeholder="Email Address">
+
               </div>
 
 
-              <div class="md-form mb-0">
-                <input type="text" id="firstName" name="firstName" class="form-control" data-validation="required" data-validation-error-msg="Please enter your name">
+              <div class="mb-0">
                 <label for="firstName" class="">First name</label>
+                <input type="text" id="firstName" name="firstName" class="form-control" data-validation="required" data-validation-error-msg="Please enter your name" placeholder="First Name">
+
               </div>
 
 
-              <div class="md-form mb-0">
-                <input type="text" id="lastName" name="lastName" class="form-control" data-validation="required" data-validation-error-msg="Please enter your name">
+              <div class="mb-0">
                 <label for="lastName" class="">Last name</label>
+                <input type="text" id="lastName" name="lastName" class="form-control" data-validation="required" data-validation-error-msg="Please enter your name" placeholder="Last Name">
+
               </div>
               <div class="gdpr">
                 <p class="small">my property insights is committed to protecting and respecting your privacy, and we’ll only use your personal information to administer your valuation and to provide the products and services you requested from us. From time to time, we would like to contact you about our products and services, as well as other content that may be of interest to you. If you consent to us contacting you for this purpose, please tick below to say how you would like us to contact you:</p>

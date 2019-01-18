@@ -90,10 +90,7 @@ $('#lookup_field').setupPostcodeLookup({
   input: "#postCodeInput",
   dropdown_class: 'form-control',
   onAddressSelected: function() {
-    $("#selectedAddress").slideDown('slow', function() {
-    });
-    $('#selectedAddress label').addClass('active');
-    $("#leadSecTwo").css('display', 'block');
+    $("#selectedAddress").slideDown('slow');
   },
   onSearchCompleted: function (data) {
     if (data.code === 2000) {

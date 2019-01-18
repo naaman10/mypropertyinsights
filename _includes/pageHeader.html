@@ -1,9 +1,13 @@
-<header class="hero text-white text-center" id="newsHeader">
+<header class="hero text-white text-center" id="newsHeader" style="background-image: url('{{site.url}}/{{page.heroImg}}');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
       <div class="col-xl-9 mx-auto">
         <h1 class="mb-2">{{page.title}}</h1>
+        {% if page.heading %}
+        <h3>{{page.heading}}</h3>
+        {% endif %}
+        <h3>
       </div>
     </div>
   </div>
