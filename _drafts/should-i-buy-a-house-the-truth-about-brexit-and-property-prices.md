@@ -3,8 +3,14 @@ layout: post.html
 excerpt_separator: "<!--more-->"
 title: Should I Buy A House? The Truth About Brexit And Property Prices
 date: 2019-01-17 00:00:00 +0000
-categories: []
-tags: []
+categories:
+- news-insights
+tags:
+- selling
+- without
+- estate
+- agents
+- advice
 banner_image: ''
 author: Sophie Gallagher
 source: HuffPost UK
