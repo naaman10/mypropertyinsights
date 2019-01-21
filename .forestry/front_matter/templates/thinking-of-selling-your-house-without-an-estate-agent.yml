@@ -41,6 +41,13 @@ fields:
   description: 1200x300px
   config:
     maxSize: '1'
+- type: text
+  name: author
+  label: author
+  description: Article Author
+- type: text
+  name: source
+  label: source
 pages:
 - _posts/2018-10-25-Without-an-estate-agent.md
 - _posts/should-i-buy-a-house-the-truth-about-brexit-and-property-prices.md
