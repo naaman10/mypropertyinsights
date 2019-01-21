@@ -8,6 +8,7 @@ tags: []
 banner_image: ''
 author: Sophie Gallagher
 source: HuffPost UK
+source_url: https://www.huffingtonpost.co.uk/entry/a-good-time-to-buy-this-is-what-a-housing-slowdown-really-means-for-renters-and-homeowners_uk_5c405145e4b0a8dbe16dd84c
 
 ---
 The UK’s impending withdrawal from the European Union doesn’t appear to be heralding great things for the nation’s economy so far – with falls in the value of the pound, reports of [job losses](https://www.huffingtonpost.co.uk/entry/jaguar-land-rover_uk_5c376dc3e4b045f67689c0fe), and [people stockpiling food and medicine](https://www.huffingtonpost.co.uk/entry/matt-hancock-stockpiling-brexit_uk_5b57510ae4b0fd5c73c9525f).
