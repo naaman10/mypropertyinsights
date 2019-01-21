@@ -51,7 +51,7 @@ fields:
 - type: text
   name: source_url
   label: Source URL
-  default: https://www.huffingtonpost.co.uk/entry/a-good-time-to-buy-this-is-what-a-housing-slowdown-really-means-for-renters-and-homeowners_uk_5c405145e4b0a8dbe16dd84c
+  default: ''
 pages:
 - _posts/2018-10-25-Without-an-estate-agent.md
 - _posts/should-i-buy-a-house-the-truth-about-brexit-and-property-prices.md
