@@ -6,7 +6,7 @@ layout: default
 <section class="">
   <div class="row justify-content-center">
 
-      <div class="post-img" style="background-image: url('{{base.url}}{{page.banner_image}}');" ></div>
+      <div class="post-img" style="background-image: url('{{base.url}}{{page.thumbnail_image}}');" ></div>
       <a href="#!">
         <div class="mask rgba-white-slight"></div>
       </a>
@@ -14,7 +14,11 @@ layout: default
       <div class="card card-cascade wider reverse">
         <div class="card-body card-body-cascade text-center">
           <h2 class="font-weight-bold"><a>{{ page.title }}</a></h2>
+          {% if page.source == "mypropertyinsights" %}
           <p>Written by <strong>{{page.author}}</strong> {{ page.date | date: "%B %-d, %Y" }}</p>
+          {% elsif page.source != "mypropertyinsights" %}
+          <p class="badge badge-light origPost">Originally posted on <a href="{{page.source_url}}">{{page.source}}</a> by <strong>{{page.author}}</strong></p>
+          {% endif %}
           <div class="fb-share-button social-counters" data-href="{{site.url}}{{page.url}}" layout="button_count" data-size="large" data-mobile-iframe="false">
             <a class="btn btn-fb fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}&amp;src=sdkpreparse" target="_blank" >
               <i class="fab fa-facebook-f"></i>

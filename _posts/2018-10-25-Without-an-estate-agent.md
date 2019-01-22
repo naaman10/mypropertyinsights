@@ -11,7 +11,10 @@ tags:
 - advice
 excerpt_separator: "<!--more-->"
 banner_image: "/uploads/post-image.jpeg"
+thumbnail_image: "/uploads/post-image.jpeg"
 author: "Katie McConville"
+source: "mypropertyinsights"
+source_url: ""
 ---
 
 Having headaches over estate agent fees?

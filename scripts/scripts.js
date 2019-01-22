@@ -93,13 +93,19 @@ $('#lookup_field').setupPostcodeLookup({
     $("#selectedAddress").slideDown('slow');
   },
   onSearchCompleted: function (data) {
-    if (data.code === 2000) {
+    if (data.code === 2000 && data.result[0].country === "England") {
       // success ID1 1QD
       var postCode = $("#postCodeInput").val();
       var pcTrim = $.trim(postCode);
+      console.log(data.result[0].country);
       console.log("Success!"+ JSON.stringify(data,2,2));
-    } else if (data.code === 4040) {
+    } else if (data.result[0].country === "Scotland") {
+      $("#successStatus")
+        .prepend('<div class="invalid-tooltip"><i class="fas fa-exclamation-triangle"></i>Scotland."</div>');
+    }
+    else if (data.code === 4040) {
       // Postcode does not exist ID1 KFA
+      console.log(data.code);
       $("#successStatus")
         .prepend('<div class="invalid-tooltip"><i class="fas fa-exclamation-triangle"></i>Postcode can not be found, please try again."</div>');
     } else {
