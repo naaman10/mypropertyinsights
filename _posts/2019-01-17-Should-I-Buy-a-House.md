@@ -23,7 +23,7 @@ And then there’s the housing market. The outlook is predicted to be worse than
 
 But could this housing slowdown be a golden opportunity – might it be a blessing in disguise for generation rent, currently priced out of the market, or the ideal moment for homeowners to get a great remortgage deal? We asked the experts.
 
-[5c4057272400009d009f9fa5.jpeg?ops=scalefit_630_noupscale](https://img.huffingtonpost.com/asset/5c4057272400009d009f9fa5.jpeg?ops=scalefit_630_noupscale "5c4057272400009d009f9fa5.jpeg?ops=scalefit_630_noupscale")
+![https://img.huffingtonpost.com/asset/5c4057272400009d009f9fa5.jpeg](https://img.huffingtonpost.com/asset/5c4057272400009d009f9fa5.jpeg?ops=scalefit_630_noupscale)
 
 David Blake, [Which?](https://www.which.co.uk/) mortgage advisor, says Brexit could go either way for renters looking to get their foot on the ladder. “Yes, a blip in property prices could mean some bargains. Mortgages are very cheap right now compared to how much they have cost historically. Mortgage repayments could be lower than rent,” he says. ”\[But\] this is on the assumption that property prices go back up of course, of which is no guarantee.”
 
