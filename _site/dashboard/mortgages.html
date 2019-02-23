@@ -1,0 +1,79 @@
+<div class="row pt-3" id="dashboardValuation">
+  <div class="col-12 col-sm-8 col-md-8 col-lg-8 mb-3">
+    <div class="dashCard shadow-sm animated fadeInDown">
+      <div class="dashCardHeader">Online brokers</div>
+      <div class="dashCardBody">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Provider</th>
+              <th scope="col">Fees</th>
+              <th scope="col">MPI Rating</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="https://mortgagesimplicity.co.uk/wp-content/uploads/2017/10/Logo.png" alt="mortgage simplicity" height="30"></td>
+              <td>0</td>
+              <td class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td>
+              <td><a class="btn btn-primary btn-sm" href="https://www.paidonresults.net/c/52417/1/880/0">View</a></td>
+            </tr>
+            <tr>
+              <td><img src="https://www.finbud.co.uk/wp-content/themes/finbud/images/logo.png" alt="finbud" height="30"></td>
+              <td>0</td>
+              <td class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i></td>
+              <td><a class="btn btn-primary btn-sm" href="https://www.paidonresults.net/c/52417/1/1601/0">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-4">
+    <div class="dashCard shadow-sm animated fadeInDown">
+      <div class="dashCardHeader">Mortgage Calculator</div>
+      <div class="dashCardBody">
+        <div class="md-form">
+          <input type="number" id="mortAmount" class="form-control">
+          <label for="mortAmount">Mortgage Amount</label>
+        </div>
+        <div class="md-form">
+          <input value="3.92" type="number" id="mortInterest" class="form-control">
+          <label for="mortInterest">Interest Rate (%)</label>
+        </div>
+        <div class="md-form">
+          <input value="25" type="number" id="mortLength" class="form-control">
+          <label for="mortLength">Mortgage Length (years)</label>
+        </div>
+        <button type="button" class="btn btn-primary btn-block" id="mortButton">Calculate</button>
+        <div id="mortResult"></div>
+      </div>
+    </div>
+</div>
+
+
+<script>
+  $("#mortInterest").siblings('label').addClass('active');
+  $("#mortLength").siblings('label').addClass('active');
+  $("#mortButton").on('click', function() {
+    $("#mortResult").text("");
+    var mortAmountStr = $("#mortAmount").val();
+    if (mortAmountStr <= "") {
+    $("#mortResult").html('<div class="valError"><p class="small"><i class="fas fa-exclamation-triangle"></i> Please enter a mortgage amount.</p></div>');
+  } else {
+    var mortAmount = parseInt(mortAmountStr);
+    var mortInterestStr = $("#mortInterest").val();
+    var mortInterest = parseInt(mortInterestStr);
+    var mortLengthStr = $("#mortLength").val();
+    var mortLength = parseInt(mortLengthStr);
+    var mortPerc = (mortAmount / 100) * mortInterest;
+    var mortCalcA = (mortAmount + mortPerc) / mortLength;
+    var mortCalcB = mortCalcA / 12;
+    $("#mortResult").append('<div class="resultInner shadow-sm animated fadeInDown"><p class="small">Monthly estimate from...</p><h2>£' + Math.round(mortCalcB) + '</h2></div>');
+    console.log(mortCalcB);
+  }
+  });
+
+
+</script>

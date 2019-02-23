@@ -215,8 +215,6 @@ $("#mainLeadFormSubmit").on('click', function(event) {
   var addLine3 = $("#third_line").val();
   var town = $("#post_town").val();
   var postCode = $("#postcode").val();
-  var marketConsent = $("#marketConsent").val();
-  var serviceConsent = $("#serviceConsent").val();
   var longitude = $("#longitude").val();
   var latitude = $("#latitude").val();
     var theForm = {
@@ -255,11 +253,11 @@ $("#mainLeadFormSubmit").on('click', function(event) {
         },
         {
           "name": "marketing_consent",
-          "value": marketConsent
+          "value": "no"
         },
         {
           "name": "service_consent",
-          "value": serviceConsent
+          "value": "yes"
         }
       ]
     }
@@ -289,8 +287,8 @@ $("#mainLeadFormSubmit").on('click', function(event) {
           add3 : addLine3,
           town : town,
           postcode : postCode,
-          market : marketConsent,
-          service : serviceConsent,
+          market : "no",
+          service : "yes",
           long : longitude,
           lat : latitude,
           date: Date()
