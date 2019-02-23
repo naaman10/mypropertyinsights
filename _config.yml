@@ -10,9 +10,15 @@ collections:
     output: true
 defaults:
 email: naamanh10@gmail.com
-description: My Property Insights
+description: Free and instant property valuations with My Property Insights
 baseurl: ''
 url: https://www.mypropertyinsights.co.uk
 markdown: kramdown
 date: 2018
+social:
+  name: mypropertyinsights
+  links:
+    - https://www.facebook.com/mypropertyinsights/
 keywords: [property,insights,value,selling,buying,house,home,owner,mortgage,advice]
+plugins:
+  - jekyll-seo-tag
