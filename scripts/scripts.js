@@ -54,14 +54,18 @@ $(document).ready(function() {
     },
     button: "#find-button",
     input: "#postCodeInput",
-    dropdown_class: 'form-control',
+    dropdown_class: 'form-control d-none',
     onSearchCompleted: function (data) {
       if (data.code === 2000) {
-        // success ID1 1QD
+        if (data.result[0].country === "Scotland") {
+          $("#idpc_dropdown").hide();
+          $(".formHomeBlock").append('<div><p class="errScot">Unfortunately mypropertyinsights is currently not availble in Scotland.</p></div>');
+        } else {
         var postCode = $("#postCodeInput").val();
         var pcTrim = $.trim(postCode);
         window.location.href = '/valuation-form?postcode=' + pcTrim.replace(/\s/g, '');
         console.log("Success!"+ JSON.stringify(data,2,2));
+      }
       } else if (data.code === 4040) {
         // Postcode does not exist ID1 KFA
         $("#successStatus")

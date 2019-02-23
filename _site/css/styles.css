@@ -6,6 +6,10 @@ p {
   font-size: 18px;
   font-weight: 300; }
 
+.errScot {
+  color: #2da13d;
+  font-weight: 300; }
+
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
@@ -341,7 +345,7 @@ main {
   background-color: #E0E0E0;
   height: 100vh; }
 
-#mainLeadForm {
+#mainLeadForm, #contactForm {
   background-color: #EAEAEA;
   padding: 20px;
   border-radius: 4px; }
