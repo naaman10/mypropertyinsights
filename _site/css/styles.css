@@ -55,7 +55,7 @@ h1.logo span {
     background: url("../img/iphoneX.png") no-repeat center center; } }
 header.hero {
   position: relative;
-  background-color: #343a40;
+  background-color: #EAEAEA;
   padding-top: 8rem;
   padding-bottom: 8rem;
   background-attachment: fixed;
